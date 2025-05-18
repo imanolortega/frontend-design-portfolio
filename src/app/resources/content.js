@@ -7,7 +7,7 @@ const person = {
   role: 'Front-end Developer',
   avatar: '/images/avatar.jpg',
   email: 'contacto@imanolortega.com',
-  location: 'Asia/Jakarta',
+  location: 'Lago Puelo, Argentina',
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -66,7 +66,7 @@ const home = {
   subline: (
     <>
       Mi nombre es Imanol, soy Front-end Developer y diseñador.
-      <br /> Hoy mi enfoque está en la experiencia del usuario:
+      <br /> Mi enfoque está en la experiencia del usuario:
       <br /> sitios rápidos, intuitivos y accesibles.
     </>
   ),
@@ -76,7 +76,7 @@ const about = {
   path: '/about',
   label: 'About',
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -93,9 +93,14 @@ const about = {
     title: 'Introducción',
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Soy un desarrollador Front-end y diseñador con 4 años de experiencia en la creación de
+        sitios web.
+        <br /> <br />
+        Tengo una amplia variedad de intereses, que incluyen desarrollo web, diseño, marketing y
+        fotografía.
+        <br /> <br />
+        Trabajo con Next.js en el Front-end y usualmente con algún CMS (headless o no) en el
+        Back-end. Utilizo JavaScript o TypeScript según el proyecto. También he trabajado con VueJS.
       </>
     ),
   },
@@ -104,43 +109,23 @@ const about = {
     title: 'Experiencia',
     experiences: [
       {
-        company: 'FLY',
-        timeframe: '2022 - Present',
-        role: 'Senior Design Engineer',
+        company: 'Easytechgreen',
+        timeframe: '2021 - Presente',
+        role: 'Front-end Developer',
         achievements: [
+          <>Desarrollador Front-end de Websites desacoplados (principalmente).</>,
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Trabajando en general con JavaScript o TypeScript, React.js, Next.js, Sass, GraphQL y
+            JSON API.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: '/images/projects/project-01/cover-01.jpg',
-            alt: 'Once UI Project',
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: 'Creativ3',
-        timeframe: '2018 - 2022',
-        role: 'Lead Designer',
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
+        company: 'Silstech',
+        timeframe: '2021',
+        role: 'Front-end Developer',
+        achievements: [<>Desarrollador Front-end de Producto con JavaScript y Vue.js.</>],
         images: [],
       },
     ],
@@ -150,12 +135,12 @@ const about = {
     title: 'Estudios',
     institutions: [
       {
-        name: 'University of Jakarta',
-        description: <>Studied software engineering.</>,
+        name: 'Universidad Católica de Santiago del Estero',
+        description: <>Lic. en Comunicación Social.</>,
       },
       {
-        name: 'Build the Future',
-        description: <>Studied online marketing and personal branding.</>,
+        name: 'Universidad Nacional de Santiago del Estero',
+        description: <>Lic. en Sistemas de la Información.</>,
       },
     ],
   },
@@ -164,36 +149,29 @@ const about = {
     title: 'Tecnologías',
     skills: [
       {
-        title: 'Figma',
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: '/images/projects/project-01/cover-02.jpg',
-            alt: 'Project image',
-            width: 16,
-            height: 9,
-          },
-          {
-            src: '/images/projects/project-01/cover-03.jpg',
-            alt: 'Project image',
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: 'Next.js',
+        description: <></>,
+        images: [],
       },
       {
-        title: 'Next.js',
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: '/images/projects/project-01/cover-04.jpg',
-            alt: 'Project image',
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: 'React.js',
+        description: <></>,
+        images: [],
+      },
+      {
+        title: 'JavaScript y TypeScript',
+        description: <></>,
+        images: [],
+      },
+      {
+        title: 'CSS, Sass, Tailwind',
+        description: <></>,
+        images: [],
+      },
+      {
+        title: 'Figma y Herramientas de diseño en general',
+        description: <></>,
+        images: [],
       },
     ],
   },

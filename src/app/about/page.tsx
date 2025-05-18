@@ -4,8 +4,8 @@ import {
   Column,
   Flex,
   Heading,
-  Icon,
   IconButton,
+  Row,
   SmartImage,
   Tag,
   Text,
@@ -109,7 +109,7 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading className={styles.textAlign} variant="display-strong-xl" marginBottom="s">
               {person.name}
             </Heading>
             <Text
@@ -256,42 +256,25 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
-                          >
-                            <SmartImage
-                              enlarge
-                              radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
-              </Column>
+              <Row gap="l" wrap>
+                {Array.from({
+                  length: Math.ceil(about.technical.skills.length / 3),
+                }).map((_, colIndex) => {
+                  const start = colIndex * 3;
+                  const end = start + 3;
+                  const group = about.technical.skills.slice(start, end);
+
+                  return (
+                    <Column key={colIndex} gap="l">
+                      {group.map((skill, index) => (
+                        <Text key={`${skill.title}-${index}`} variant="body-default-m">
+                          - {skill.title}
+                        </Text>
+                      ))}
+                    </Column>
+                  );
+                })}
+              </Row>
             </>
           )}
         </Column>
