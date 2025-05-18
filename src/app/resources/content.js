@@ -1,5 +1,3 @@
-import { Logo } from '@/once-ui/components';
-
 const person = {
   firstName: 'Imanol',
   lastName: 'Ortega Carabajal',
@@ -9,7 +7,7 @@ const person = {
   role: 'Front-end Developer',
   avatar: '/images/avatar.jpg',
   email: 'contacto@imanolortega.com',
-  location: 'Asia/Jakarta', // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: 'Asia/Jakarta',
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -53,9 +51,9 @@ const home = {
   path: '/',
   image: '/images/og/home.jpg',
   label: 'Home',
-  title: `${person.name} | Front-end Developer`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Código y diseño</>,
+  title: `${person.name} | ${person.role}`,
+  description: `${person.name}. ${person.role}. Sitio web personal.`,
+  headline: <>Desarrollo web y diseño</>,
   featured: {
     display: true,
     title: (
@@ -68,9 +66,8 @@ const home = {
   subline: (
     <>
       Mi nombre es Imanol, soy Front-end Developer y diseñador.
-      <br/> Hoy mi enfoque está en la experiencia del
-      usuario:
-      <br/> sitios rápidos, intuitivos y accesibles.
+      <br /> Hoy mi enfoque está en la experiencia del usuario:
+      <br /> sitios rápidos, intuitivos y accesibles.
     </>
   ),
 };
@@ -93,7 +90,7 @@ const about = {
   },
   intro: {
     display: true,
-    title: 'Introduction',
+    title: 'Introducción',
     description: (
       <>
         Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
@@ -104,7 +101,7 @@ const about = {
   },
   work: {
     display: true, // set to false to hide this section
-    title: 'Work Experience',
+    title: 'Experiencia',
     experiences: [
       {
         company: 'FLY',
@@ -150,7 +147,7 @@ const about = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: 'Studies',
+    title: 'Estudios',
     institutions: [
       {
         name: 'University of Jakarta',
@@ -164,7 +161,7 @@ const about = {
   },
   technical: {
     display: true, // set to false to hide this section
-    title: 'Technical skills',
+    title: 'Tecnologías',
     skills: [
       {
         title: 'Figma',
