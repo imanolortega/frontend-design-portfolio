@@ -50,6 +50,7 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+
   return (
     <Column maxWidth="m">
       <Schema
@@ -109,7 +110,7 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            <Heading className={styles.textAlign} variant="display-strong-xl" marginBottom="s">
+            <Heading className={styles.textAlign} variant="display-strong-l" marginBottom="s">
               {person.name}
             </Heading>
             <Text
@@ -169,7 +170,7 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="xl">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
@@ -231,7 +232,7 @@ export default function About() {
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="xl">
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -256,7 +257,7 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Row gap="l" wrap>
+              <Row gap="l" wrap marginBottom="xl">
                 {Array.from({
                   length: Math.ceil(about.technical.skills.length / 3),
                 }).map((_, colIndex) => {
