@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Column, Flex, Text } from "@/once-ui/components";
-import styles from "./about.module.scss";
+import React from 'react';
+import { Column, Flex, Text } from '@/once-ui/components';
+import styles from './about.module.scss';
 
 interface TableOfContentsProps {
   structure: {
@@ -27,7 +27,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   };
@@ -38,9 +38,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
     <Column
       left="0"
       style={{
-        top: "50%",
-        transform: "translateY(-50%)",
-        whiteSpace: "nowrap",
+        top: '50%',
+        transform: 'translateY(-50%)',
+        whiteSpace: 'nowrap',
       }}
       position="fixed"
       paddingLeft="24"
@@ -67,7 +67,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                   <Flex
                     hide="l"
                     key={itemIndex}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                     className={styles.hover}
                     gap="12"
                     paddingLeft="24"

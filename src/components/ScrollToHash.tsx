@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function ScrollToHash() {
   const router = useRouter();
@@ -11,10 +11,10 @@ export default function ScrollToHash() {
     const hash = window.location.hash;
     if (hash) {
       // Remove the '#' symbol
-      const id = hash.replace("#", "");
+      const id = hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [router]);

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useRef, useCallback, useMemo, ReactNode } from "react";
-import { Flex, Text, Icon, Column, Input, Option, Row } from ".";
-import { createPortal } from "react-dom";
-import { useRouter, usePathname } from "next/navigation";
-import styles from "./Kbar.module.scss";
+import React, { useState, useEffect, useRef, useCallback, useMemo, ReactNode } from 'react';
+import { Flex, Text, Icon, Column, Input, Option, Row } from '.';
+import { createPortal } from 'react-dom';
+import { useRouter, usePathname } from 'next/navigation';
+import styles from './Kbar.module.scss';
 
 export interface KbarItem {
   id: string;
@@ -19,7 +19,7 @@ export interface KbarItem {
 }
 
 const SectionHeader: React.FC<{ label: string }> = ({ label }) => (
-  <Flex 
+  <Flex
     paddingX="12"
     paddingBottom="8"
     paddingTop="12"
@@ -51,7 +51,7 @@ interface KbarContentProps {
 }
 
 export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -72,7 +72,7 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
       if (!searchQuery) return true;
-      
+
       const searchLower = searchQuery.toLowerCase();
       return (
         item.name.toLowerCase().includes(searchLower) ||
@@ -96,30 +96,33 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
       });
 
       // Add items for this section
-      const sectionItems = filteredItems.filter(
-        (item) => item.section === section
-      );
+      const sectionItems = filteredItems.filter((item) => item.section === section);
 
       for (const item of sectionItems) {
         result.push({
           value: item.id,
           label: item.name,
-          hasPrefix: item.icon ? <Icon name={item.icon} size="xs" onBackground="neutral-weak" /> : undefined,
-          hasSuffix: item.shortcut && item.shortcut.length > 0 ? (
-            <Row gap="4">
-              {item.shortcut.map((key, i) => (
-                <Text key={i} variant="label-default-xs" onBackground="neutral-weak">
-                  {key}
-                </Text>
-              ))}
-            </Row>
+          hasPrefix: item.icon ? (
+            <Icon name={item.icon} size="xs" onBackground="neutral-weak" />
           ) : undefined,
+          hasSuffix:
+            item.shortcut && item.shortcut.length > 0 ? (
+              <Row gap="4">
+                {item.shortcut.map((key, i) => (
+                  <Text key={i} variant="label-default-xs" onBackground="neutral-weak">
+                    {key}
+                  </Text>
+                ))}
+              </Row>
+            ) : undefined,
           description: item.description,
           href: item.href,
-          onClick: item.perform ? () => {
-            item.perform?.();
-            onClose();
-          } : undefined,
+          onClick: item.perform
+            ? () => {
+                item.perform?.();
+                onClose();
+              }
+            : undefined,
         });
       }
     }
@@ -129,7 +132,7 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
 
   // Get non-custom options for highlighting
   const nonCustomOptions = useMemo(() => {
-    return groupedItems.filter(item => !item.isCustom);
+    return groupedItems.filter((item) => !item.isCustom);
   }, [groupedItems]);
 
   // Reset optionRefs when nonCustomOptions change
@@ -143,45 +146,48 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
   }, [searchQuery, nonCustomOptions.length]);
 
   // Handle keyboard navigation
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (!nonCustomOptions.length) return;
-    
-    switch (e.key) {
-      case "ArrowDown":
-        e.preventDefault();
-        setHighlightedIndex(prevIndex => {
-          if (prevIndex === null) return 0;
-          return (prevIndex + 1) % nonCustomOptions.length;
-        });
-        break;
-      case "ArrowUp":
-        e.preventDefault();
-        setHighlightedIndex(prevIndex => {
-          if (prevIndex === null) return nonCustomOptions.length - 1;
-          return (prevIndex - 1 + nonCustomOptions.length) % nonCustomOptions.length;
-        });
-        break;
-      case "Enter":
-        e.preventDefault();
-        if (highlightedIndex !== null && highlightedIndex < nonCustomOptions.length) {
-          const selectedOption = nonCustomOptions[highlightedIndex];
-          if (selectedOption) {
-            // Find the original item to get the perform function or href
-            const originalItem = items.find(item => item.id === selectedOption.value);
-            if (originalItem) {
-              if (originalItem.href) {
-                router.push(originalItem.href);
-                onClose();
-              } else if (originalItem.perform) {
-                originalItem.perform();
-                onClose();
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (!nonCustomOptions.length) return;
+
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          setHighlightedIndex((prevIndex) => {
+            if (prevIndex === null) return 0;
+            return (prevIndex + 1) % nonCustomOptions.length;
+          });
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          setHighlightedIndex((prevIndex) => {
+            if (prevIndex === null) return nonCustomOptions.length - 1;
+            return (prevIndex - 1 + nonCustomOptions.length) % nonCustomOptions.length;
+          });
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (highlightedIndex !== null && highlightedIndex < nonCustomOptions.length) {
+            const selectedOption = nonCustomOptions[highlightedIndex];
+            if (selectedOption) {
+              // Find the original item to get the perform function or href
+              const originalItem = items.find((item) => item.id === selectedOption.value);
+              if (originalItem) {
+                if (originalItem.href) {
+                  router.push(originalItem.href);
+                  onClose();
+                } else if (originalItem.perform) {
+                  originalItem.perform();
+                  onClose();
+                }
               }
             }
           }
-        }
-        break;
-    }
-  }, [nonCustomOptions, items, router, onClose, highlightedIndex]);
+          break;
+      }
+    },
+    [nonCustomOptions, items, router, onClose, highlightedIndex],
+  );
 
   // Scroll highlighted element into view
   useEffect(() => {
@@ -190,11 +196,11 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
       requestAnimationFrame(() => {
         const highlightedElement = optionRefs.current[highlightedIndex];
         const scrollContainer = scrollContainerRef.current;
-        
+
         if (highlightedElement && scrollContainer) {
           const elementRect = highlightedElement.getBoundingClientRect();
           const containerRect = scrollContainer.getBoundingClientRect();
-          
+
           // Check if the element is not fully visible
           if (elementRect.bottom > containerRect.bottom) {
             // Element is below the visible area - scroll just enough to show it
@@ -213,17 +219,17 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
   // Handle escape key
   useEffect(() => {
     const handleEscapeKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         handleClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEscapeKey);
+      document.addEventListener('keydown', handleEscapeKey);
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener('keydown', handleEscapeKey);
     };
   }, [isOpen, handleClose]);
 
@@ -231,22 +237,22 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
   useEffect(() => {
     if (isOpen) {
       // Prevent body scrolling when kbar is open
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
       // Restore body scrolling when kbar is closed
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       // Cleanup function to ensure body scroll is restored
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
   // Clear search query when kbar is closed
   useEffect(() => {
     if (!isOpen) {
-      setSearchQuery("");
+      setSearchQuery('');
       setHighlightedIndex(null);
     } else {
       // Set the first item as highlighted when opened
@@ -263,7 +269,7 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
       const timer = setTimeout(() => {
         inputRef.current?.focus();
       }, 50);
-      
+
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
@@ -320,32 +326,22 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
             radius="none"
             autoComplete="off"
             style={{
-              marginTop: "-1px",
-              marginLeft: "-1px",
-              width: "calc(100% + 2px)",
+              marginTop: '-1px',
+              marginLeft: '-1px',
+              width: 'calc(100% + 2px)',
             }}
           />
         </Flex>
-        <Column 
-          ref={scrollContainerRef}
-          fillWidth 
-          padding="4" 
-          gap="2" 
-          overflowY="auto"
-        >
+        <Column ref={scrollContainerRef} fillWidth padding="4" gap="2" overflowY="auto">
           {groupedItems.map((option, index) => {
             if (option.isCustom) {
-              return (
-                <React.Fragment key={option.value}>
-                  {option.label}
-                </React.Fragment>
-              );
+              return <React.Fragment key={option.value}>{option.label}</React.Fragment>;
             }
-            
+
             // Find the index in the non-custom options array
-            const optionIndex = nonCustomOptions.findIndex(item => item.value === option.value);
+            const optionIndex = nonCustomOptions.findIndex((item) => item.value === option.value);
             const isHighlighted = optionIndex === highlightedIndex;
-            
+
             return (
               <Option
                 ref={(el) => {
@@ -359,21 +355,15 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
                 hasPrefix={option.hasPrefix}
                 hasSuffix={option.hasSuffix}
                 description={option.description}
-                {...(option.href 
-                  ? { href: option.href, onClick: undefined, onLinkClick: onClose } 
-                  : { onClick: option.onClick }
-                )}
+                {...(option.href
+                  ? { href: option.href, onClick: undefined, onLinkClick: onClose }
+                  : { onClick: option.onClick })}
                 highlighted={isHighlighted}
               />
             );
           })}
           {searchQuery && filteredItems.length === 0 && (
-            <Flex
-              fillWidth
-              center
-              paddingX="16"
-              paddingY="64"
-            >
+            <Flex fillWidth center paddingX="16" paddingY="64">
               <Text variant="body-default-m" onBackground="neutral-weak">
                 No results found
               </Text>
@@ -417,7 +407,7 @@ export const Kbar: React.FC<KbarProps> = ({ items, children, ...rest }) => {
       // Check for Command+K (Mac) or Control+K (Windows/Linux)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault(); // Prevent default browser behavior
-        setIsOpen(prev => !prev); // Toggle Kbar open/close
+        setIsOpen((prev) => !prev); // Toggle Kbar open/close
       }
     };
 
@@ -435,14 +425,11 @@ export const Kbar: React.FC<KbarProps> = ({ items, children, ...rest }) => {
       <KbarTrigger onClick={handleOpen} {...rest}>
         {children}
       </KbarTrigger>
-      {isOpen && createPortal(
-        <KbarContent 
-          isOpen={isOpen} 
-          onClose={handleClose} 
-          items={items} 
-        />,
-        document.body
-      )}
+      {isOpen &&
+        createPortal(
+          <KbarContent isOpen={isOpen} onClose={handleClose} items={items} />,
+          document.body,
+        )}
     </>
   );
 };

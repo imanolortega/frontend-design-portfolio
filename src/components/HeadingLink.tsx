@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Heading, Flex, IconButton, useToast } from "@/once-ui/components";
+import React from 'react';
+import { Heading, Flex, IconButton, useToast } from '@/once-ui/components';
 
-import styles from "@/components/HeadingLink.module.scss";
+import styles from '@/components/HeadingLink.module.scss';
 
 interface HeadingLinkProps {
   id: string;
@@ -20,26 +20,26 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
     navigator.clipboard.writeText(url).then(
       () => {
         addToast({
-          variant: "success",
-          message: "Link copied to clipboard.",
+          variant: 'success',
+          message: 'Link copied to clipboard.',
         });
       },
       () => {
         addToast({
-          variant: "danger",
-          message: "Failed to copy link.",
+          variant: 'danger',
+          message: 'Failed to copy link.',
         });
       },
     );
   };
 
   const variantMap = {
-    1: "display-strong-xs",
-    2: "heading-strong-xl",
-    3: "heading-strong-l",
-    4: "heading-strong-m",
-    5: "heading-strong-s",
-    6: "heading-strong-xs",
+    1: 'display-strong-xs',
+    2: 'heading-strong-xl',
+    3: 'heading-strong-l',
+    4: 'heading-strong-m',
+    5: 'heading-strong-s',
+    6: 'heading-strong-xs',
   } as const;
 
   const variant = variantMap[level];

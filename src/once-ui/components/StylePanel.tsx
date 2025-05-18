@@ -1,51 +1,51 @@
-"use client";
+'use client';
 
-import { forwardRef, useState, useEffect } from "react";
-import { Flex, Text, SegmentedControl, IconButton, Scroller, Column } from ".";
+import { forwardRef, useState, useEffect } from 'react';
+import { Flex, Text, SegmentedControl, IconButton, Scroller, Column } from '.';
 
-import styles from "./StylePanel.module.scss";
-import classNames from "classnames";
-import { style } from "@/app/resources/config";
+import styles from './StylePanel.module.scss';
+import classNames from 'classnames';
+import { style } from '@/app/resources/config';
 
 interface StylePanelProps extends React.ComponentProps<typeof Flex> {
   style?: React.CSSProperties;
   className?: string;
 }
 
-const shapes = ["conservative", "playful", "rounded"];
+const shapes = ['conservative', 'playful', 'rounded'];
 
 const colorOptions = {
   brand: [
-    "cyan",
-    "blue",
-    "indigo",
-    "violet",
-    "magenta",
-    "pink",
-    "red",
-    "orange",
-    "yellow",
-    "moss",
-    "green",
-    "emerald",
-    "aqua",
+    'cyan',
+    'blue',
+    'indigo',
+    'violet',
+    'magenta',
+    'pink',
+    'red',
+    'orange',
+    'yellow',
+    'moss',
+    'green',
+    'emerald',
+    'aqua',
   ],
   accent: [
-    "cyan",
-    "blue",
-    "indigo",
-    "violet",
-    "magenta",
-    "pink",
-    "red",
-    "orange",
-    "yellow",
-    "moss",
-    "green",
-    "emerald",
-    "aqua",
+    'cyan',
+    'blue',
+    'indigo',
+    'violet',
+    'magenta',
+    'pink',
+    'red',
+    'orange',
+    'yellow',
+    'moss',
+    'green',
+    'emerald',
+    'aqua',
   ],
-  neutral: ["sand", "gray", "slate"],
+  neutral: ['sand', 'gray', 'slate'],
 };
 
 const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref) => {
@@ -62,17 +62,17 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
 
   useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute("data-border", selectedShape);
-    root.setAttribute("data-brand", brandColor);
-    root.setAttribute("data-accent", accentColor);
-    root.setAttribute("data-neutral", neutralColor);
-    root.setAttribute("data-solid", solid);
-    root.setAttribute("data-solid-style", solidStyle);
-    root.setAttribute("data-theme", theme);
-    root.setAttribute("data-transition", transition);
-    root.setAttribute("data-scaling", scaling);
-    root.setAttribute("data-surface", surface);
-    root.setAttribute("data-transition", transition);
+    root.setAttribute('data-border', selectedShape);
+    root.setAttribute('data-brand', brandColor);
+    root.setAttribute('data-accent', accentColor);
+    root.setAttribute('data-neutral', neutralColor);
+    root.setAttribute('data-solid', solid);
+    root.setAttribute('data-solid-style', solidStyle);
+    root.setAttribute('data-theme', theme);
+    root.setAttribute('data-transition', transition);
+    root.setAttribute('data-scaling', scaling);
+    root.setAttribute('data-surface', surface);
+    root.setAttribute('data-transition', transition);
   }, [
     selectedShape,
     brandColor,
@@ -109,10 +109,10 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
           <SegmentedControl
             maxWidth={22}
             buttons={[
-              { size: "l", label: "Light", value: "light", prefixIcon: "light" },
-              { size: "l", label: "Dark", value: "dark", prefixIcon: "dark" },
+              { size: 'l', label: 'Light', value: 'light', prefixIcon: 'light' },
+              { size: 'l', label: 'Dark', value: 'dark', prefixIcon: 'dark' },
             ]}
-            onToggle={(value) => setTheme(value as "light" | "dark")}
+            onToggle={(value) => setTheme(value as 'light' | 'dark')}
             selected={theme}
           />
         </Flex>
@@ -127,7 +127,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 vertical="center"
                 className={classNames(
                   styles.select,
-                  selectedShape === radius ? styles.selected : "",
+                  selectedShape === radius ? styles.selected : '',
                 )}
                 onClick={() => {
                   setSelectedShape(radius);
@@ -168,7 +168,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 key={color}
                 horizontal="center"
                 vertical="center"
-                className={classNames(styles.select, brandColor === color ? styles.selected : "")}
+                className={classNames(styles.select, brandColor === color ? styles.selected : '')}
                 onClick={() => {
                   setBrandColor(color);
                 }}
@@ -200,7 +200,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 key={color}
                 horizontal="center"
                 vertical="center"
-                className={classNames(styles.select, accentColor === color ? styles.selected : "")}
+                className={classNames(styles.select, accentColor === color ? styles.selected : '')}
                 onClick={() => {
                   setAccentColor(color);
                 }}
@@ -231,7 +231,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 key={color}
                 horizontal="center"
                 vertical="center"
-                className={classNames(styles.select, neutralColor === color ? styles.selected : "")}
+                className={classNames(styles.select, neutralColor === color ? styles.selected : '')}
                 onClick={() => {
                   setNeutralColor(color);
                 }}
@@ -267,7 +267,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
             minWidth={0}
             buttons={[
               {
-                size: "l",
+                size: 'l',
                 label: (
                   <Flex vertical="center" gap="12">
                     <Flex
@@ -281,10 +281,10 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                     Color
                   </Flex>
                 ),
-                value: "color",
+                value: 'color',
               },
               {
-                size: "l",
+                size: 'l',
                 label: (
                   <Flex vertical="center" gap="12">
                     <Flex
@@ -298,10 +298,10 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                     Inverse
                   </Flex>
                 ),
-                value: "inverse",
+                value: 'inverse',
               },
               {
-                size: "l",
+                size: 'l',
                 label: (
                   <Flex vertical="center" gap="12">
                     <Flex
@@ -315,10 +315,10 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                     Contrast
                   </Flex>
                 ),
-                value: "contrast",
+                value: 'contrast',
               },
             ]}
-            onToggle={(value) => setSolid(value as "color" | "contrast" | "inverse")}
+            onToggle={(value) => setSolid(value as 'color' | 'contrast' | 'inverse')}
             selected={solid}
           />
         </Flex>
@@ -336,7 +336,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
             minWidth={0}
             buttons={[
               {
-                size: "l",
+                size: 'l',
                 label: (
                   <Flex vertical="center" gap="12">
                     <Flex
@@ -349,17 +349,17 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                     Flat
                   </Flex>
                 ),
-                value: "flat",
+                value: 'flat',
               },
               {
-                size: "l",
+                size: 'l',
                 label: (
                   <Flex vertical="center" gap="12">
                     <Flex
                       border="brand-strong"
                       style={{
                         boxShadow:
-                          "inset 0 calc(-1 * var(--static-space-8)) var(--static-space-8) var(--brand-solid-strong)",
+                          'inset 0 calc(-1 * var(--static-space-8)) var(--static-space-8) var(--brand-solid-strong)',
                       }}
                       solid="brand-weak"
                       width="24"
@@ -369,10 +369,10 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                     Plastic
                   </Flex>
                 ),
-                value: "plastic",
+                value: 'plastic',
               },
             ]}
-            onToggle={(value) => setSolidStyle(value as "flat" | "plastic")}
+            onToggle={(value) => setSolidStyle(value as 'flat' | 'plastic')}
             selected={solidStyle}
           />
         </Flex>
@@ -397,18 +397,18 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
           <SegmentedControl
             maxWidth={22}
             minWidth={0}
-            onToggle={(value) => setSurface(value as "translucent" | "filled")}
+            onToggle={(value) => setSurface(value as 'translucent' | 'filled')}
             selected={surface}
             buttons={[
               {
-                size: "l",
-                label: "Filled",
-                value: "filled",
+                size: 'l',
+                label: 'Filled',
+                value: 'filled',
               },
               {
-                size: "l",
-                label: "Translucent",
-                value: "translucent",
+                size: 'l',
+                label: 'Translucent',
+                value: 'translucent',
               },
             ]}
           />
@@ -426,33 +426,33 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
           <SegmentedControl
             maxWidth={22}
             minWidth={0}
-            onToggle={(value) => setScaling(value as "90" | "95" | "100" | "105" | "110")}
+            onToggle={(value) => setScaling(value as '90' | '95' | '100' | '105' | '110')}
             selected={scaling}
             buttons={[
               {
-                size: "l",
-                label: "90",
-                value: "90",
+                size: 'l',
+                label: '90',
+                value: '90',
               },
               {
-                size: "l",
-                label: "95",
-                value: "95",
+                size: 'l',
+                label: '95',
+                value: '95',
               },
               {
-                size: "l",
-                label: "100",
-                value: "100",
+                size: 'l',
+                label: '100',
+                value: '100',
               },
               {
-                size: "l",
-                label: "105",
-                value: "105",
+                size: 'l',
+                label: '105',
+                value: '105',
               },
               {
-                size: "l",
-                label: "110",
-                value: "110",
+                size: 'l',
+                label: '110',
+                value: '110',
               },
             ]}
           />
@@ -469,28 +469,28 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
           <SegmentedControl
             maxWidth={22}
             minWidth={0}
-            onToggle={(value) => setTransition(value as "all" | "micro" | "macro" | "none")}
+            onToggle={(value) => setTransition(value as 'all' | 'micro' | 'macro' | 'none')}
             selected={transition}
             buttons={[
               {
-                size: "l",
-                label: "All",
-                value: "all",
+                size: 'l',
+                label: 'All',
+                value: 'all',
               },
               {
-                size: "l",
-                label: "Micro",
-                value: "micro",
+                size: 'l',
+                label: 'Micro',
+                value: 'micro',
               },
               {
-                size: "l",
-                label: "Macro",
-                value: "macro",
+                size: 'l',
+                label: 'Macro',
+                value: 'macro',
               },
               {
-                size: "l",
-                label: "None",
-                value: "none",
+                size: 'l',
+                label: 'None',
+                value: 'none',
               },
             ]}
           />
@@ -500,5 +500,5 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
   );
 });
 
-StylePanel.displayName = "StylePanel";
+StylePanel.displayName = 'StylePanel';
 export { StylePanel };

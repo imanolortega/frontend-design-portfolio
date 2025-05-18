@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Row } from "./Row";
-import { IconButton } from "./IconButton";
-import { useState, ReactNode } from "react";
+import { Row } from './Row';
+import { IconButton } from './IconButton';
+import { useState, ReactNode } from 'react';
 
 type TableProps = {
   data: {
@@ -19,14 +19,14 @@ type TableProps = {
 function Table({ data, onRowClick }: TableProps) {
   const [sortConfig, setSortConfig] = useState<{
     key: string;
-    direction: "ascending" | "descending";
+    direction: 'ascending' | 'descending';
   } | null>(null);
 
   const handleSort = (key: string) => {
-    let direction: "ascending" | "descending" = "ascending";
+    let direction: 'ascending' | 'descending' = 'ascending';
 
     if (sortConfig && sortConfig.key === key) {
-      direction = sortConfig.direction === "ascending" ? "descending" : "ascending";
+      direction = sortConfig.direction === 'ascending' ? 'descending' : 'ascending';
     }
 
     setSortConfig({ key, direction });
@@ -41,7 +41,7 @@ function Table({ data, onRowClick }: TableProps) {
     const aValue = String(a[headerIndex]);
     const bValue = String(b[headerIndex]);
 
-    if (sortConfig.direction === "ascending") {
+    if (sortConfig.direction === 'ascending') {
       return aValue.localeCompare(bValue);
     } else {
       return bValue.localeCompare(aValue);
@@ -50,7 +50,7 @@ function Table({ data, onRowClick }: TableProps) {
 
   const headers = data.headers.map((header, index) => (
     <th
-      style={{ textAlign: "left", borderBottom: "1px solid var(--neutral-alpha-medium)" }}
+      style={{ textAlign: 'left', borderBottom: '1px solid var(--neutral-alpha-medium)' }}
       className="px-16 py-12 font-label font-default font-s"
       key={index}
     >
@@ -60,10 +60,10 @@ function Table({ data, onRowClick }: TableProps) {
           <IconButton
             icon={
               sortConfig?.key === header.key
-                ? sortConfig.direction === "ascending"
-                  ? "chevronUp"
-                  : "chevronDown"
-                : "chevronDown"
+                ? sortConfig.direction === 'ascending'
+                  ? 'chevronUp'
+                  : 'chevronDown'
+                : 'chevronDown'
             }
             size="s"
             variant="ghost"
@@ -84,8 +84,8 @@ function Table({ data, onRowClick }: TableProps) {
     <tr
       key={index}
       onClick={onRowClick ? () => onRowClick(index) : undefined}
-      className={onRowClick ? "cursor-interactive hover-row" : ""}
-      style={onRowClick ? { transition: "background-color 0.2s ease" } : undefined}
+      className={onRowClick ? 'cursor-interactive hover-row' : ''}
+      style={onRowClick ? { transition: 'background-color 0.2s ease' } : undefined}
     >
       {row.map((cell, cellIndex) => (
         <td className="px-16 py-12 font-body font-default font-s" key={cellIndex}>
@@ -112,7 +112,7 @@ function Table({ data, onRowClick }: TableProps) {
       `}</style>
       <table
         className="fill-width surface-background"
-        style={{ borderSpacing: 0, borderCollapse: "collapse", minWidth: "32rem" }}
+        style={{ borderSpacing: 0, borderCollapse: 'collapse', minWidth: '32rem' }}
       >
         <thead className="neutral-on-background-strong">
           <tr>{headers}</tr>

@@ -1,9 +1,9 @@
-import React from "react";
-import Script from "next/script";
-import { social } from "@/app/resources/content";
+import React from 'react';
+import Script from 'next/script';
+import { social } from '@/app/resources/content';
 
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization";
+  as: 'website' | 'article' | 'blog' | 'blogPosting' | 'techArticle' | 'webPage' | 'organization';
   title: string;
   description: string;
   baseURL: string;
@@ -19,13 +19,13 @@ export interface SchemaProps {
 }
 
 const schemaTypeMap = {
-  website: "WebSite",
-  article: "Article",
-  blog: "Blog",
-  blogPosting: "BlogPosting",
-  techArticle: "TechArticle",
-  webPage: "WebPage",
-  organization: "Organization",
+  website: 'WebSite',
+  article: 'Article',
+  blog: 'Blog',
+  blogPosting: 'BlogPosting',
+  techArticle: 'TechArticle',
+  webPage: 'WebPage',
+  organization: 'Organization',
 };
 
 export function Schema({
@@ -39,11 +39,11 @@ export function Schema({
   image,
   author,
 }: SchemaProps) {
-  const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const normalizedBaseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
 
   const imageUrl = image
-    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
+    ? `${normalizedBaseURL}${image.startsWith('/') ? image : `/${image}`}`
     : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
 
   const url = `${normalizedBaseURL}${normalizedPath}`;
@@ -51,18 +51,18 @@ export function Schema({
   const schemaType = schemaTypeMap[as];
 
   const schema: Record<string, any> = {
-    "@context": "https://schema.org",
-    "@type": schemaType,
+    '@context': 'https://schema.org',
+    '@type': schemaType,
     url,
   };
-  
-  schema.sameAs = Object.values(social).filter(Boolean)
 
-  if (as === "website") {
+  schema.sameAs = Object.values(social).filter(Boolean);
+
+  if (as === 'website') {
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-  } else if (as === "organization") {
+  } else if (as === 'organization') {
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
@@ -79,12 +79,12 @@ export function Schema({
 
   if (author) {
     schema.author = {
-      "@type": "Person",
+      '@type': 'Person',
       name: author.name,
       ...(author.url && { url: author.url }),
       ...(author.image && {
         image: {
-          "@type": "ImageObject",
+          '@type': 'ImageObject',
           url: author.image,
         },
       }),

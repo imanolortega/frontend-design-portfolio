@@ -8,7 +8,7 @@ export {
   mailchimp,
   baseURL,
   font,
-} from "@/app/resources/config";
+} from '@/app/resources/config';
 export {
   person,
   social,
@@ -18,4 +18,4 @@ export {
   blog,
   work,
   gallery,
-} from "@/app/resources/content";
+} from '@/app/resources/content';

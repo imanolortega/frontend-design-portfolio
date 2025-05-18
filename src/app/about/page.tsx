@@ -9,13 +9,13 @@ import {
   SmartImage,
   Tag,
   Text,
-} from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
-import { person, about, social } from "@/app/resources/content";
-import React from "react";
-import { Meta, Schema } from "@/once-ui/modules";
+} from '@/once-ui/components';
+import { baseURL } from '@/app/resources';
+import TableOfContents from '@/components/about/TableOfContents';
+import styles from '@/components/about/about.module.scss';
+import { person, about, social } from '@/app/resources/content';
+import React from 'react';
+import { Meta, Schema } from '@/once-ui/modules';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -68,7 +68,7 @@ export default function About() {
       {about.tableOfContent.display && (
         <Column
           left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
+          style={{ top: '50%', transform: 'translateY(-50%)' }}
           position="fixed"
           paddingLeft="24"
           gap="32"
@@ -119,7 +119,7 @@ export default function About() {
                 border="brand-alpha-medium"
                 className={styles.blockAlign}
                 style={{
-                  backdropFilter: "blur(var(--static-space-1))",
+                  backdropFilter: 'blur(var(--static-space-1))',
                 }}
                 background="brand-alpha-weak"
                 radius="full"
@@ -149,29 +149,38 @@ export default function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth data-border="rounded">
+              <Flex
+                className={styles.blockAlign}
+                paddingTop="20"
+                paddingBottom="8"
+                gap="8"
+                wrap
+                horizontal="center"
+                fitWidth
+                data-border="rounded"
+              >
                 {social.map(
                   (item) =>
                     item.link && (
-                        <React.Fragment key={item.name}>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </React.Fragment>
+                      <React.Fragment key={item.name}>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </React.Fragment>
                     ),
                 )}
               </Flex>

@@ -1,11 +1,11 @@
-import { Metadata as NextMetadata } from "next";
+import { Metadata as NextMetadata } from 'next';
 
 export interface MetaProps {
   title: string;
   description: string;
   baseURL: string;
   path?: string;
-  type?: "website" | "article";
+  type?: 'website' | 'article';
   image?: string;
   publishedTime?: string;
   author?: {
@@ -18,21 +18,21 @@ export function generateMetadata({
   title,
   description,
   baseURL,
-  path = "",
-  type = "website",
+  path = '',
+  type = 'website',
   image,
   publishedTime,
   author,
 }: MetaProps): NextMetadata {
-  const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const normalizedBaseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
 
   const isFullUrl = (url: string) => /^https?:\/\//.test(url);
 
   const ogImage = image
     ? isFullUrl(image)
       ? image
-      : `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
+      : `${normalizedBaseURL}${image.startsWith('/') ? image : `/${image}`}`
     : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
 
   const url = `${normalizedBaseURL}${normalizedPath}`;
@@ -44,7 +44,7 @@ export function generateMetadata({
       title,
       description,
       type,
-      ...(publishedTime && type === "article" ? { publishedTime } : {}),
+      ...(publishedTime && type === 'article' ? { publishedTime } : {}),
       url,
       images: [
         {
@@ -54,7 +54,7 @@ export function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],

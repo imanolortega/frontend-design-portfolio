@@ -24,6 +24,6 @@ export function useTheme() {
 
   return {
     theme,
-    toggleTheme
+    toggleTheme,
   };
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   AvatarGroup,
@@ -8,7 +8,7 @@ import {
   Heading,
   SmartLink,
   Text,
-} from "@/once-ui/components";
+} from '@/once-ui/components';
 
 interface ProjectCardProps {
   href: string;
@@ -66,7 +66,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
+                  style={{ margin: '0', width: 'fit-content' }}
                   href={href}
                 >
                   <Text variant="body-default-s">Read case study</Text>
@@ -75,7 +75,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {link && (
                 <SmartLink
                   suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
+                  style={{ margin: '0', width: 'fit-content' }}
                   href={link}
                 >
                   <Text variant="body-default-s">View project</Text>

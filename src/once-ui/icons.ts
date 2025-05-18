@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
 import {
   HiChevronUp,
@@ -26,7 +26,7 @@ import {
   HiMoon,
   HiSun,
   HiOutlineDocument,
-} from "react-icons/hi2";
+} from 'react-icons/hi2';
 
 import {
   PiHouseDuotone,
@@ -34,9 +34,9 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
-} from "react-icons/pi";
+} from 'react-icons/pi';
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX } from "react-icons/fa6";
+import { FaDiscord, FaGithub, FaLinkedin, FaX } from 'react-icons/fa6';
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,

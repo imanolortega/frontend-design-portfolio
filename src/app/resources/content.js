@@ -1,16 +1,16 @@
-import { Logo } from "@/once-ui/components";
+import { Logo } from '@/once-ui/components';
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: 'Imanol',
+  lastName: 'Ortega Carabajal',
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: 'Front-end Developer',
+  avatar: '/images/avatar.jpg',
+  email: 'contacto@imanolortega.com',
+  location: 'Asia/Jakarta', // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -28,50 +28,56 @@ const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    name: 'GitHub',
+    icon: 'github',
+    link: 'https://github.com/imanolortega',
   },
   {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    name: 'LinkedIn',
+    icon: 'linkedin',
+    link: 'https://www.linkedin.com/in/imanol-ortega-dev/',
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
+    name: 'X',
+    icon: 'x',
+    link: '',
   },
   {
-    name: "Email",
-    icon: "email",
+    name: 'Email',
+    icon: 'email',
     link: `mailto:${person.email}`,
   },
 ];
 
 const home = {
-  path: "/",
-  image: "/images/og/home.jpg",
-  label: "Home",
-  title: `${person.name}'s Portfolio`,
+  path: '/',
+  image: '/images/og/home.jpg',
+  label: 'Home',
+  title: `${person.name} | Front-end Developer`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Código y diseño</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: (
+      <>
+        Último proyecto: <strong className="ml-4">Wedding Site</strong>
+      </>
+    ),
+    href: 'https://www.theboda.top/',
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      Mi nombre es Imanol, soy Front-end Developer y diseñador.
+      <br/> Hoy mi enfoque está en la experiencia del
+      usuario:
+      <br/> sitios rápidos, intuitivos y accesibles.
     </>
   ),
 };
 
 const about = {
-  path: "/about",
-  label: "About",
+  path: '/about',
+  label: 'About',
   title: `About – ${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
@@ -83,11 +89,11 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: 'https://cal.com',
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: 'Introduction',
     description: (
       <>
         Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
@@ -98,12 +104,12 @@ const about = {
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: 'Work Experience',
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: 'FLY',
+        timeframe: '2022 - Present',
+        role: 'Senior Design Engineer',
         achievements: [
           <>
             Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
@@ -117,17 +123,17 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: '/images/projects/project-01/cover-01.jpg',
+            alt: 'Once UI Project',
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: 'Creativ3',
+        timeframe: '2018 - 2022',
+        role: 'Lead Designer',
         achievements: [
           <>
             Developed a design system that unified the brand across multiple platforms, improving
@@ -144,49 +150,49 @@ const about = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: 'Studies',
     institutions: [
       {
-        name: "University of Jakarta",
+        name: 'University of Jakarta',
         description: <>Studied software engineering.</>,
       },
       {
-        name: "Build the Future",
+        name: 'Build the Future',
         description: <>Studied online marketing and personal branding.</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: 'Technical skills',
     skills: [
       {
-        title: "Figma",
+        title: 'Figma',
         description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
+            src: '/images/projects/project-01/cover-02.jpg',
+            alt: 'Project image',
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
+            src: '/images/projects/project-01/cover-03.jpg',
+            alt: 'Project image',
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        title: "Next.js",
+        title: 'Next.js',
         description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
+            src: '/images/projects/project-01/cover-04.jpg',
+            alt: 'Project image',
             width: 16,
             height: 9,
           },
@@ -197,17 +203,17 @@ const about = {
 };
 
 const blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
+  path: '/blog',
+  label: 'Blog',
+  title: 'Writing about design and tech...',
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
 
 const work = {
-  path: "/work",
-  label: "Work",
+  path: '/work',
+  label: 'Work',
   title: `Projects – ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
@@ -215,52 +221,52 @@ const work = {
 };
 
 const gallery = {
-  path: "/gallery",
-  label: "Gallery",
+  path: '/gallery',
+  label: 'Gallery',
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      src: '/images/gallery/horizontal-1.jpg',
+      alt: 'image',
+      orientation: 'horizontal',
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      src: '/images/gallery/horizontal-2.jpg',
+      alt: 'image',
+      orientation: 'horizontal',
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      src: '/images/gallery/horizontal-3.jpg',
+      alt: 'image',
+      orientation: 'horizontal',
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      src: '/images/gallery/horizontal-4.jpg',
+      alt: 'image',
+      orientation: 'horizontal',
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: '/images/gallery/vertical-1.jpg',
+      alt: 'image',
+      orientation: 'vertical',
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: '/images/gallery/vertical-2.jpg',
+      alt: 'image',
+      orientation: 'vertical',
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: '/images/gallery/vertical-3.jpg',
+      alt: 'image',
+      orientation: 'vertical',
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: '/images/gallery/vertical-4.jpg',
+      alt: 'image',
+      orientation: 'vertical',
     },
   ],
 };

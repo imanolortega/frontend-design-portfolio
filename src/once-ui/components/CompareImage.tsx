@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
-import { Flex, SmartImage, IconButton } from ".";
-import styles from "./CompareImage.module.scss";
+import { useState, useRef, useEffect } from 'react';
+import { Flex, SmartImage, IconButton } from '.';
+import styles from './CompareImage.module.scss';
 
 interface SideContent {
   src: string | React.ReactNode;
@@ -15,11 +15,11 @@ interface CompareImageProps extends React.ComponentProps<typeof Flex> {
 }
 
 const renderContent = (content: SideContent, clipPath: string) => {
-  if (typeof content.src === "string") {
+  if (typeof content.src === 'string') {
     return (
       <SmartImage
         src={content.src}
-        alt={content.alt || ""}
+        alt={content.alt || ''}
         fill
         position="absolute"
         style={{ clipPath }}
@@ -68,27 +68,21 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
   };
 
   useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleMouseUp);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchmove', handleTouchMove);
+    document.addEventListener('touchend', handleMouseUp);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('touchend', handleMouseUp);
     };
   }, []);
 
   return (
-    <Flex
-      ref={containerRef}
-      aspectRatio="16/9"
-      fillWidth
-      style={{ touchAction: "none" }}
-      {...rest}
-    >
+    <Flex ref={containerRef} aspectRatio="16/9" fillWidth style={{ touchAction: 'none' }} {...rest}>
       {renderContent(leftContent, `inset(0 ${100 - position}% 0 0)`)}
       {renderContent(rightContent, `inset(0 0 0 ${position}%)`)}
 
@@ -122,4 +116,4 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
   );
 };
 
-CompareImage.displayName = "CompareImage";
+CompareImage.displayName = 'CompareImage';
