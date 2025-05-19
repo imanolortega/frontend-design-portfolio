@@ -49,7 +49,7 @@ const social = [
 
 const home = {
   path: '/',
-  image: '/images/og/cover-imanol-ortega.jpg',
+  image: '/images/og',
   label: 'Home',
   title: `${person.name} | ${person.role}`,
   description: `${person.name}. ${person.role}. Sitio web personal.`,
