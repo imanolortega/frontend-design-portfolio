@@ -4,7 +4,7 @@ import '@/once-ui/tokens/index.scss';
 import classNames from 'classnames';
 
 import { Footer, Header, RouteGuard } from '@/components';
-import { baseURL, effects, style, font, home } from '@/app/resources';
+import { baseURL, effects, style, font, home, person } from '@/app/resources';
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
@@ -55,6 +55,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <meta name="og:site_name" content={home.title} />
         <meta name="og:description" content={home.description} />
         <meta name="og:image" content={`${baseURL}${home.image}`} />
+        <meta name="og:image:alt" content={`${person.name}'s portfolio.`} />
         <meta name="og:url" content={`${baseURL}${home.path}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={home.description} />
