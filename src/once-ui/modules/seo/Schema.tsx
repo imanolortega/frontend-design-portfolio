@@ -44,7 +44,7 @@ export function Schema({
 
   const imageUrl = image
     ? `${normalizedBaseURL}${image.startsWith('/') ? image : `/${image}`}`
-    : `${normalizedBaseURL}/og/cover-imanol-ortega.jpg`;
+    : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
 
   const url = `${normalizedBaseURL}${normalizedPath}`;
 
