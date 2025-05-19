@@ -49,7 +49,7 @@ const social = [
 
 const home = {
   path: '/',
-  image: '/images/og/home.jpg',
+  image: '/images/og/cover-imanol-ortega.jpg',
   label: 'Home',
   title: `${person.name} | ${person.role}`,
   description: `${person.name}. ${person.role}. Sitio web personal.`,
@@ -190,7 +190,7 @@ const work = {
   path: '/work',
   label: 'Projects',
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: `Últimos proyectos desarrollados por ${person.name}, ${person.role}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
