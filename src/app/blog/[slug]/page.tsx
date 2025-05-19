@@ -45,7 +45,7 @@ export async function generateMetadata({
     baseURL: baseURL,
     image: post.metadata.image
       ? `${baseURL}${post.metadata.image}`
-      : `${baseURL}/og?title=${post.metadata.title}`,
+      : `${baseURL}/og/og/cover-imanol-ortega.jpg`,
     path: `${blog.path}/${post.slug}`,
   });
 }
@@ -80,7 +80,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+            image={`${baseURL}/og/og/cover-imanol-ortega.jpg`}
             author={{
               name: person.name,
               url: `${baseURL}${about.path}`,
