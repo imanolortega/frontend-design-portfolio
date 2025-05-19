@@ -47,6 +47,19 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
+        <title>{home.title}</title>
+        <meta name="description" content={home.description} />
+        <meta name="canonical" content={`${baseURL}${home.path}`} />
+        <meta name="og:title" content={home.description} />
+        <meta name="og:type" content="website" />
+        <meta name="og:site_name" content={home.title} />
+        <meta name="og:description" content={home.description} />
+        <meta name="og:image" content={`${baseURL}${home.image}`} />
+        <meta name="og:url" content={`${baseURL}${home.path}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={home.description} />
+        <meta name="twitter:description" content={home.description} />
+        <meta name="twitter:image" content={`${baseURL}${home.image}`} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
