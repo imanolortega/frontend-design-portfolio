@@ -10,7 +10,7 @@ export async function generateMetadata() {
     title: blog.title,
     description: blog.description,
     baseURL: baseURL,
-    image: `${baseURL}/og/og/cover-imanol-ortega.jpg`,
+    image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
   });
 }
@@ -24,10 +24,10 @@ export default function Blog() {
         title={blog.title}
         description={blog.description}
         path={blog.path}
-        image={`${baseURL}/og/og/cover-imanol-ortega.jpg`}
+        image={`${baseURL}/og?title=${encodeURIComponent(blog.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}/blog`,
+          url: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
