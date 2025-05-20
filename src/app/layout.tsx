@@ -3,8 +3,11 @@ import '@/once-ui/tokens/index.scss';
 
 import classNames from 'classnames';
 
+import { Analytics } from '@vercel/analytics/react';
 import { Footer, Header, RouteGuard } from '@/components';
 import { baseURL, effects, style, font, home, person } from '@/app/resources';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
@@ -50,7 +53,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <title>{home.title}</title>
         <meta name="description" content={home.description} />
         <meta name="canonical" content={`${baseURL}${home.path}`} />
-        <meta name="image" property="og:image" content='/images/og/cover-imanol-ortega.jpg' />
+        <meta name="image" property="og:image" content="/images/og/cover-imanol-ortega.jpg" />
         <meta name="og:title" content={home.description} />
         <meta name="og:type" content="website" />
         <meta name="og:site_name" content={home.title} />
@@ -83,6 +86,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           }}
         />
       </head>
+      <Analytics />
+      <SpeedInsights />
+      <GoogleAnalytics gaId="G-Y96S8DZ7R0" />
       <ThemeProvider>
         <ToastProvider>
           <Column style={{ minHeight: '100vh' }} as="body" fillWidth margin="0" padding="0">
