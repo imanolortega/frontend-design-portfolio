@@ -1,31 +1,34 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from '@/once-ui/components';
-import styles from '@/components/Header.module.scss';
+import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
+import styles from "@/components/Header.module.scss";
 
-import { routes, display } from '@/app/resources';
-import { person, about, blog, work, gallery } from '@/app/resources/content';
-import { ThemeToggle } from './ThemeToggle';
+import { routes, display } from "@/app/resources";
+import { about, blog, work, gallery } from "@/app/resources/content";
+import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = 'en-GB' }) => {
-  const [currentTime, setCurrentTime] = useState('');
+const TimeDisplay: React.FC<TimeDisplayProps> = ({
+  timeZone,
+  locale = "en-GB",
+}) => {
+  const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
       const options: Intl.DateTimeFormatOptions = {
         timeZone,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
         hour12: false,
       };
       const timeString = new Intl.DateTimeFormat(locale, options).format(now);
@@ -44,12 +47,20 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = 'en-GB' })
 export default TimeDisplay;
 
 export const Header = () => {
-  const pathname = usePathname() ?? '';
+  const pathname = usePathname() ?? "";
 
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade
+        show="s"
+        fillWidth
+        position="fixed"
+        bottom="0"
+        to="top"
+        height="80"
+        zIndex={9}
+      />
       <Flex
         fitHeight
         position="unset"
@@ -72,75 +83,88 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {routes['/'] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === '/'} />
+              {routes["/"] && (
+                <ToggleButton
+                  prefixIcon="home"
+                  href="/"
+                  selected={pathname === "/"}
+                  name="home"
+                />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes['/about'] && (
+              {routes["/about"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="person"
                     href="/about"
                     label={about.label}
-                    selected={pathname === '/about'}
+                    selected={pathname === "/about"}
+                    name="about"
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
                     href="/about"
-                    selected={pathname === '/about'}
+                    selected={pathname === "/about"}
+                    name="about"
                   />
                 </>
               )}
-              {routes['/work'] && (
+              {routes["/work"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
-                    selected={pathname.startsWith('/work')}
+                    selected={pathname.startsWith("/work")}
+                    name="work"
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
                     href="/work"
-                    selected={pathname.startsWith('/work')}
+                    selected={pathname.startsWith("/work")}
+                    name="work"
                   />
                 </>
               )}
-              {routes['/blog'] && (
+              {routes["/blog"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="book"
                     href="/blog"
                     label={blog.label}
-                    selected={pathname.startsWith('/blog')}
+                    selected={pathname.startsWith("/blog")}
+                    name="blog"
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="book"
                     href="/blog"
-                    selected={pathname.startsWith('/blog')}
+                    selected={pathname.startsWith("/blog")}
+                    name="blog"
                   />
                 </>
               )}
-              {routes['/gallery'] && (
+              {routes["/gallery"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="gallery"
                     href="/gallery"
                     label={gallery.label}
-                    selected={pathname.startsWith('/gallery')}
+                    selected={pathname.startsWith("/gallery")}
+                    name="gallery"
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="gallery"
                     href="/gallery"
-                    selected={pathname.startsWith('/gallery')}
+                    selected={pathname.startsWith("/gallery")}
+                    name="gallery"
                   />
                 </>
               )}
