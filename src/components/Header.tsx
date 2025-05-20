@@ -89,6 +89,7 @@ export const Header = () => {
                   href="/"
                   selected={pathname === "/"}
                   name="home"
+                  aria-label="Link to home"
                 />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
