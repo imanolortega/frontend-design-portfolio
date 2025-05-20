@@ -52,7 +52,7 @@ const home = {
   image: '/og',
   label: 'Home',
   title: `${person.name} | ${person.role}`,
-  description: `${person.name}. ${person.role}. Sitio web personal.`,
+  description: `Soy ${person.name}, ${person.role}. Mi enfoque está en construir sitios rápidos, accesibles e intuitivos. Diseño experiencias web centradas en el usuario.`,
   headline: <>Desarrollo web y diseño</>,
   featured: {
     display: true,

@@ -50,6 +50,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
+        {/* Meta tags fix to LinkedIn Preview */}
         <title>{home.title}</title>
         <meta name="description" content={home.description} />
         <meta name="canonical" content={`${baseURL}${home.path}`} />
@@ -65,6 +66,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <meta name="twitter:title" content={home.description} />
         <meta name="twitter:description" content={home.description} />
         <meta name="twitter:image" content={`${baseURL}${home.image}`} />
+        {/*  */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
