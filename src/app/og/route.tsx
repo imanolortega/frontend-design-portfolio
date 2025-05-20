@@ -37,11 +37,12 @@ export async function GET(request: Request) {
       >
         <span
           style={{
-            fontSize: '8rem',
+            fontSize: '7rem',
             lineHeight: '8rem',
             letterSpacing: '-0.05em',
             whiteSpace: 'pre-wrap',
             textWrap: 'balance',
+            marginBottom: '0.75rem',
           }}
         >
           {title}
