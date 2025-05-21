@@ -37,7 +37,7 @@ export default function Work() {
         Algunos de los últimos proyectos personales en los que he trabajado.
       </Column>
       <Projects />
-      <RevealFx marginBottom="l" delay={0.4} horizontal="center" paddingLeft="12">
+      <RevealFx marginTop="l" marginBottom="xl" delay={0.4} horizontal="center" paddingLeft="12">
         <Button
           id="about"
           data-border="rounded"

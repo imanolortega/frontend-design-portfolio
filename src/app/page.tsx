@@ -14,7 +14,7 @@ import {
 import { Projects } from '@/components/work/Projects';
 
 import { baseURL, routes } from '@/app/resources';
-import { home, about, person } from '@/app/resources/content';
+import { home, about, person, work } from '@/app/resources/content';
 import { Posts } from '@/components/blog/Posts';
 import { Meta, Schema } from '@/once-ui/modules';
 
@@ -100,21 +100,29 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Projects range={[1, 2]} />
       </RevealFx>
-      {routes['/blog'] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
+      <RevealFx marginBottom="xl" delay={0.4} horizontal="start" paddingLeft="32">
+        <Button
+          id="about"
+          data-border="rounded"
+          href="/work"
+          variant="secondary"
+          size="m"
+          arrowIcon
+        >
+          <Flex gap="8" vertical="center">
+            {about.avatar.display && (
+              <Avatar
+                style={{ marginLeft: '-0.75rem', marginRight: '0.25rem' }}
+                src={person.avatar}
+                size="m"
+              />
+            )}
+            {work.title}
           </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <Projects range={[2]} />
+        </Button>
+      </RevealFx>
     </Column>
   );
 }
