@@ -13,9 +13,8 @@ import {
 } from '@/once-ui/components';
 import { Projects } from '@/components/work/Projects';
 
-import { baseURL, routes } from '@/app/resources';
+import { baseURL } from '@/app/resources';
 import { home, about, person, work } from '@/app/resources/content';
-import { Posts } from '@/components/blog/Posts';
 import { Meta, Schema } from '@/once-ui/modules';
 
 export async function generateMetadata() {
