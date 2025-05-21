@@ -24,7 +24,9 @@ export function generateMetadata({
   publishedTime,
   author,
 }: MetaProps): NextMetadata {
-  const normalizedBaseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
+  const normalizedBaseURL = baseURL.endsWith('/')
+    ? baseURL.slice(0, -1)
+    : baseURL;
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
 
   const isFullUrl = (url: string) => /^https?:\/\//.test(url);

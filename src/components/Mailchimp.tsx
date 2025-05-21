@@ -1,11 +1,22 @@
 'use client';
 
 import { mailchimp } from '@/app/resources';
-import { Button, Flex, Heading, Input, Text, Background, Column } from '@/once-ui/components';
+import {
+  Button,
+  Flex,
+  Heading,
+  Input,
+  Text,
+  Background,
+  Column,
+} from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
 import { useState } from 'react';
 
-function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
+function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  delay: number,
+): T {
   let timeout: ReturnType<typeof setTimeout>;
   return ((...args: Parameters<T>) => {
     clearTimeout(timeout);
@@ -106,7 +117,11 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           color: mailchimp.effects.lines.color,
         }}
       />
-      <Heading style={{ position: 'relative' }} marginBottom="s" variant="display-strong-xs">
+      <Heading
+        style={{ position: 'relative' }}
+        marginBottom="s"
+        variant="display-strong-xs"
+      >
         {newsletter.title}
       </Heading>
       <Text
@@ -131,7 +146,13 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
       >
-        <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} mobileDirection="column" gap="8">
+        <Flex
+          id="mc_embed_signup_scroll"
+          fillWidth
+          maxWidth={24}
+          mobileDirection="column"
+          gap="8"
+        >
           <Input
             formNoValidate
             labelAsPlaceholder
@@ -161,10 +182,21 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             />
           </div>
           <div id="mce-responses" className="clearfalse">
-            <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
-            <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
+            <div
+              className="response"
+              id="mce-error-response"
+              style={{ display: 'none' }}
+            ></div>
+            <div
+              className="response"
+              id="mce-success-response"
+              style={{ display: 'none' }}
+            ></div>
           </div>
-          <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
+          <div
+            aria-hidden="true"
+            style={{ position: 'absolute', left: '-5000px' }}
+          >
             <input
               type="text"
               readOnly
@@ -175,7 +207,12 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           </div>
           <div className="clear">
             <Flex height="48" vertical="center">
-              <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
+              <Button
+                id="mc-embedded-subscribe"
+                value="Subscribe"
+                size="m"
+                fillWidth
+              >
                 Subscribe
               </Button>
             </Flex>

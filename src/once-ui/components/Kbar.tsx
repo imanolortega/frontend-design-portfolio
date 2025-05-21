@@ -1,6 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback, useMemo, ReactNode } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  ReactNode,
+} from 'react';
 import { Flex, Text, Icon, Column, Input, Option, Row } from '.';
 import { createPortal } from 'react-dom';
 import { useRouter, usePathname } from 'next/navigation';
@@ -36,7 +43,11 @@ interface KbarTriggerProps {
   [key: string]: any; // Allow any additional props
 }
 
-export const KbarTrigger: React.FC<KbarTriggerProps> = ({ onClick, children, ...rest }) => {
+export const KbarTrigger: React.FC<KbarTriggerProps> = ({
+  onClick,
+  children,
+  ...rest
+}) => {
   return (
     <Flex onClick={onClick} {...rest}>
       {children}
@@ -50,7 +61,11 @@ interface KbarContentProps {
   items: KbarItem[];
 }
 
-export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items }) => {
+export const KbarContent: React.FC<KbarContentProps> = ({
+  isOpen,
+  onClose,
+  items,
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -76,8 +91,12 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
       const searchLower = searchQuery.toLowerCase();
       return (
         item.name.toLowerCase().includes(searchLower) ||
-        (item.keywords ? item.keywords.toLowerCase().includes(searchLower) : false) ||
-        (item.section ? item.section.toLowerCase().includes(searchLower) : false)
+        (item.keywords
+          ? item.keywords.toLowerCase().includes(searchLower)
+          : false) ||
+        (item.section
+          ? item.section.toLowerCase().includes(searchLower)
+          : false)
       );
     });
   }, [items, searchQuery]);
@@ -96,7 +115,9 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
       });
 
       // Add items for this section
-      const sectionItems = filteredItems.filter((item) => item.section === section);
+      const sectionItems = filteredItems.filter(
+        (item) => item.section === section,
+      );
 
       for (const item of sectionItems) {
         result.push({
@@ -109,7 +130,11 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
             item.shortcut && item.shortcut.length > 0 ? (
               <Row gap="4">
                 {item.shortcut.map((key, i) => (
-                  <Text key={i} variant="label-default-xs" onBackground="neutral-weak">
+                  <Text
+                    key={i}
+                    variant="label-default-xs"
+                    onBackground="neutral-weak"
+                  >
                     {key}
                   </Text>
                 ))}
@@ -162,16 +187,24 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
           e.preventDefault();
           setHighlightedIndex((prevIndex) => {
             if (prevIndex === null) return nonCustomOptions.length - 1;
-            return (prevIndex - 1 + nonCustomOptions.length) % nonCustomOptions.length;
+            return (
+              (prevIndex - 1 + nonCustomOptions.length) %
+              nonCustomOptions.length
+            );
           });
           break;
         case 'Enter':
           e.preventDefault();
-          if (highlightedIndex !== null && highlightedIndex < nonCustomOptions.length) {
+          if (
+            highlightedIndex !== null &&
+            highlightedIndex < nonCustomOptions.length
+          ) {
             const selectedOption = nonCustomOptions[highlightedIndex];
             if (selectedOption) {
               // Find the original item to get the perform function or href
-              const originalItem = items.find((item) => item.id === selectedOption.value);
+              const originalItem = items.find(
+                (item) => item.id === selectedOption.value,
+              );
               if (originalItem) {
                 if (originalItem.href) {
                   router.push(originalItem.href);
@@ -332,20 +365,35 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
             }}
           />
         </Flex>
-        <Column ref={scrollContainerRef} fillWidth padding="4" gap="2" overflowY="auto">
+        <Column
+          ref={scrollContainerRef}
+          fillWidth
+          padding="4"
+          gap="2"
+          overflowY="auto"
+        >
           {groupedItems.map((option, index) => {
             if (option.isCustom) {
-              return <React.Fragment key={option.value}>{option.label}</React.Fragment>;
+              return (
+                <React.Fragment key={option.value}>
+                  {option.label}
+                </React.Fragment>
+              );
             }
 
             // Find the index in the non-custom options array
-            const optionIndex = nonCustomOptions.findIndex((item) => item.value === option.value);
+            const optionIndex = nonCustomOptions.findIndex(
+              (item) => item.value === option.value,
+            );
             const isHighlighted = optionIndex === highlightedIndex;
 
             return (
               <Option
                 ref={(el) => {
-                  if (optionIndex >= 0 && optionIndex < optionRefs.current.length) {
+                  if (
+                    optionIndex >= 0 &&
+                    optionIndex < optionRefs.current.length
+                  ) {
                     optionRefs.current[optionIndex] = el;
                   }
                 }}
@@ -356,7 +404,11 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
                 hasSuffix={option.hasSuffix}
                 description={option.description}
                 {...(option.href
-                  ? { href: option.href, onClick: undefined, onLinkClick: onClose }
+                  ? {
+                      href: option.href,
+                      onClick: undefined,
+                      onLinkClick: onClose,
+                    }
                   : { onClick: option.onClick })}
                 highlighted={isHighlighted}
               />

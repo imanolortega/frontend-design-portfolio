@@ -9,7 +9,13 @@ import { baseURL, effects, style, font, home, person } from '@/app/resources';
 import { GoogleAnalytics } from '@next/third-parties/google';
 //import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { Background, Column, Flex, ThemeProvider, ToastProvider } from '@/once-ui/components';
+import {
+  Background,
+  Column,
+  Flex,
+  ThemeProvider,
+  ToastProvider,
+} from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
 import { Meta } from '@/once-ui/modules';
 
@@ -54,7 +60,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <title>{home.title}</title>
         <meta name="description" content={home.description} />
         <meta name="canonical" content={`${baseURL}${home.path}`} />
-        <meta name="image" property="og:image" content="/images/og/cover-imanol-ortega.jpg" />
+        <meta
+          name="image"
+          property="og:image"
+          content="/images/og/cover-imanol-ortega.jpg"
+        />
         <meta name="og:title" content={home.title} />
         <meta name="og:type" content="website" />
         <meta name="og:site_name" content={home.title} />
@@ -93,7 +103,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <GoogleAnalytics gaId="G-Y96S8DZ7R0" />
       <ThemeProvider>
         <ToastProvider>
-          <Column style={{ minHeight: '100vh' }} as="body" fillWidth margin="0" padding="0">
+          <Column
+            style={{ minHeight: '100vh' }}
+            as="body"
+            fillWidth
+            margin="0"
+            padding="0"
+          >
             <Background
               position="fixed"
               mask={{
@@ -137,7 +153,14 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             />
             <Flex fillWidth minHeight="16" hide="s"></Flex>
             <Header />
-            <Flex zIndex={0} fillWidth paddingY="l" paddingX="l" horizontal="center" flex={1}>
+            <Flex
+              zIndex={0}
+              fillWidth
+              paddingY="l"
+              paddingX="l"
+              horizontal="center"
+              flex={1}
+            >
               <Flex horizontal="center" fillWidth minHeight="0">
                 <RouteGuard>{children}</RouteGuard>
               </Flex>

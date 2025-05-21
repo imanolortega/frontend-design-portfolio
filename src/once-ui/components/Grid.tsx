@@ -107,7 +107,10 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
     },
     ref,
   ) => {
-    const generateDynamicClass = (type: string, value: string | '-1' | undefined) => {
+    const generateDynamicClass = (
+      type: string,
+      value: string | '-1' | undefined,
+    ) => {
       if (!value) return undefined;
 
       if (value === 'transparent') {
@@ -207,7 +210,8 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
         !borderStyle &&
         'border-solid',
       border && !borderWidth && `border-1`,
-      (borderTop || borderRight || borderBottom || borderLeft) && 'border-reset',
+      (borderTop || borderRight || borderBottom || borderLeft) &&
+        'border-reset',
       borderTop && 'border-top-1',
       borderRight && 'border-right-1',
       borderBottom && 'border-bottom-1',

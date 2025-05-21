@@ -31,10 +31,17 @@ export interface MegaMenuProps extends React.ComponentProps<typeof Flex> {
   className?: string;
 }
 
-export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...rest }) => {
+export const MegaMenu: React.FC<MegaMenuProps> = ({
+  menuGroups,
+  className,
+  ...rest
+}) => {
   const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [dropdownPosition, setDropdownPosition] = useState({ left: 0, width: 0 });
+  const [dropdownPosition, setDropdownPosition] = useState({
+    left: 0,
+    width: 0,
+  });
   const [isFirstAppearance, setIsFirstAppearance] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -46,7 +53,8 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
       const buttonElement = buttonRefs.current[activeDropdown];
       if (buttonElement) {
         const rect = buttonElement.getBoundingClientRect();
-        const parentRect = buttonElement.parentElement?.getBoundingClientRect() || { left: 0 };
+        const parentRect =
+          buttonElement.parentElement?.getBoundingClientRect() || { left: 0 };
 
         // Set initial position
         setDropdownPosition({
@@ -134,7 +142,11 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
           }}
         >
           <ToggleButton
-            selected={group.selected !== undefined ? group.selected : isSelected(group.href)}
+            selected={
+              group.selected !== undefined
+                ? group.selected
+                : isSelected(group.href)
+            }
             href={group.href}
           >
             {group.label}
@@ -188,7 +200,11 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
                     }}
                   >
                     {group.sections.map((section, sectionIndex) => (
-                      <Column key={`section-${sectionIndex}`} minWidth={10} gap="4">
+                      <Column
+                        key={`section-${sectionIndex}`}
+                        minWidth={10}
+                        gap="4"
+                      >
                         {section.title && (
                           <Text
                             marginLeft="16"
@@ -221,10 +237,15 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
                                   />
                                 )}
                                 <Column gap="4">
-                                  <Text onBackground="neutral-strong" variant="label-strong-s">
+                                  <Text
+                                    onBackground="neutral-strong"
+                                    variant="label-strong-s"
+                                  >
                                     {link.label}
                                   </Text>
-                                  <Text onBackground="neutral-weak">{link.description}</Text>
+                                  <Text onBackground="neutral-weak">
+                                    {link.description}
+                                  </Text>
                                 </Column>
                               </Row>
                             ) : (

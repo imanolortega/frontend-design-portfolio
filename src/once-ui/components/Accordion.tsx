@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useState, forwardRef, useImperativeHandle, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useCallback,
+} from 'react';
 import { Flex, Icon, Text, Column, Grid } from '.';
 import styles from './Accordion.module.scss';
 
@@ -10,7 +16,8 @@ export interface AccordionHandle extends HTMLDivElement {
   close: () => void;
 }
 
-interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, 'title'> {
+interface AccordionProps
+  extends Omit<React.ComponentProps<typeof Flex>, 'title'> {
   title: React.ReactNode;
   children: React.ReactNode;
   icon?: string;
@@ -53,7 +60,10 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           close: () => setIsOpen(false),
         };
 
-        return Object.assign(document.createElement('div'), methods) as unknown as AccordionHandle;
+        return Object.assign(
+          document.createElement('div'),
+          methods,
+        ) as unknown as AccordionHandle;
       },
       [toggleAccordion],
     );
@@ -104,7 +114,13 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           aria-hidden={!isOpen}
         >
           <Flex fillWidth minHeight={0} overflow="hidden">
-            <Column fillWidth paddingX="20" paddingTop="8" paddingBottom="16" {...rest}>
+            <Column
+              fillWidth
+              paddingX="20"
+              paddingTop="8"
+              paddingBottom="16"
+              {...rest}
+            >
               {children}
             </Column>
           </Flex>

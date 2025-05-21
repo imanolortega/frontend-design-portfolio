@@ -43,7 +43,11 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
+function createImage({
+  alt,
+  src,
+  ...props
+}: SmartImageProps & { src: string }) {
   if (!src) {
     console.error("SmartImage requires a valid 'src' property.");
     return null;
@@ -79,7 +83,10 @@ function createHeading(as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6') {
     const slug = slugify(children as string);
     return (
       <HeadingLink
-        style={{ marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)' }}
+        style={{
+          marginTop: 'var(--static-space-24)',
+          marginBottom: 'var(--static-space-12)',
+        }}
         as={as}
         id={slug}
         {...props}
@@ -114,7 +121,11 @@ function createInlineCode({ children }: { children: ReactNode }) {
 
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
-  if (props.children && props.children.props && props.children.props.className) {
+  if (
+    props.children &&
+    props.children.props &&
+    props.children.props.className
+  ) {
     const { className, children } = props.children.props;
 
     // Extract language from className (format: language-xxx)
@@ -157,18 +168,32 @@ const components = {
   Text,
   CodeBlock,
   InlineCode,
-  Accordion: dynamic(() => import('@/once-ui/components').then((mod) => mod.Accordion)),
-  AccordionGroup: dynamic(() => import('@/once-ui/components').then((mod) => mod.AccordionGroup)),
+  Accordion: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.Accordion),
+  ),
+  AccordionGroup: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.AccordionGroup),
+  ),
   Table: dynamic(() => import('@/once-ui/components').then((mod) => mod.Table)),
-  Feedback: dynamic(() => import('@/once-ui/components').then((mod) => mod.Feedback)),
-  Button: dynamic(() => import('@/once-ui/components').then((mod) => mod.Button)),
+  Feedback: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.Feedback),
+  ),
+  Button: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.Button),
+  ),
   Card: dynamic(() => import('@/once-ui/components').then((mod) => mod.Card)),
   Grid: dynamic(() => import('@/once-ui/components').then((mod) => mod.Grid)),
   Row: dynamic(() => import('@/once-ui/components').then((mod) => mod.Row)),
-  Column: dynamic(() => import('@/once-ui/components').then((mod) => mod.Column)),
+  Column: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.Column),
+  ),
   Icon: dynamic(() => import('@/once-ui/components').then((mod) => mod.Icon)),
-  SmartImage: dynamic(() => import('@/once-ui/components').then((mod) => mod.SmartImage)),
-  SmartLink: dynamic(() => import('@/once-ui/components').then((mod) => mod.SmartLink)),
+  SmartImage: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.SmartImage),
+  ),
+  SmartLink: dynamic(() =>
+    import('@/once-ui/components').then((mod) => mod.SmartLink),
+  ),
 };
 
 type CustomMDXProps = MDXRemoteProps & {
@@ -176,5 +201,10 @@ type CustomMDXProps = MDXRemoteProps & {
 };
 
 export function CustomMDX(props: CustomMDXProps) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }

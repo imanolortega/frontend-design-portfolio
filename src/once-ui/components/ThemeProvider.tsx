@@ -59,7 +59,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
       setResolvedTheme(e.matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      document.documentElement.setAttribute(
+        'data-theme',
+        e.matches ? 'dark' : 'light',
+      );
     };
 
     mediaQuery.addEventListener('change', handleChange);
@@ -75,7 +78,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     },
   };
 
-  return <ThemeProviderContext.Provider value={value}>{children}</ThemeProviderContext.Provider>;
+  return (
+    <ThemeProviderContext.Provider value={value}>
+      {children}
+    </ThemeProviderContext.Provider>
+  );
 }
 
 export const useTheme = () => {

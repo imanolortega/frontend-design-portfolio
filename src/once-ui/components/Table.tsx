@@ -26,7 +26,8 @@ function Table({ data, onRowClick }: TableProps) {
     let direction: 'ascending' | 'descending' = 'ascending';
 
     if (sortConfig && sortConfig.key === key) {
-      direction = sortConfig.direction === 'ascending' ? 'descending' : 'ascending';
+      direction =
+        sortConfig.direction === 'ascending' ? 'descending' : 'ascending';
     }
 
     setSortConfig({ key, direction });
@@ -35,7 +36,9 @@ function Table({ data, onRowClick }: TableProps) {
   const sortedRows = [...data.rows].sort((a, b) => {
     if (!sortConfig) return 0;
 
-    const headerIndex = data.headers.findIndex((header) => header.key === sortConfig.key);
+    const headerIndex = data.headers.findIndex(
+      (header) => header.key === sortConfig.key,
+    );
     if (headerIndex === -1) return 0;
 
     const aValue = String(a[headerIndex]);
@@ -50,7 +53,10 @@ function Table({ data, onRowClick }: TableProps) {
 
   const headers = data.headers.map((header, index) => (
     <th
-      style={{ textAlign: 'left', borderBottom: '1px solid var(--neutral-alpha-medium)' }}
+      style={{
+        textAlign: 'left',
+        borderBottom: '1px solid var(--neutral-alpha-medium)',
+      }}
       className="px-16 py-12 font-label font-default font-s"
       key={index}
     >
@@ -85,10 +91,15 @@ function Table({ data, onRowClick }: TableProps) {
       key={index}
       onClick={onRowClick ? () => onRowClick(index) : undefined}
       className={onRowClick ? 'cursor-interactive hover-row' : ''}
-      style={onRowClick ? { transition: 'background-color 0.2s ease' } : undefined}
+      style={
+        onRowClick ? { transition: 'background-color 0.2s ease' } : undefined
+      }
     >
       {row.map((cell, cellIndex) => (
-        <td className="px-16 py-12 font-body font-default font-s" key={cellIndex}>
+        <td
+          className="px-16 py-12 font-body font-default font-s"
+          key={cellIndex}
+        >
           {cell}
         </td>
       ))}
@@ -112,7 +123,11 @@ function Table({ data, onRowClick }: TableProps) {
       `}</style>
       <table
         className="fill-width surface-background"
-        style={{ borderSpacing: 0, borderCollapse: 'collapse', minWidth: '32rem' }}
+        style={{
+          borderSpacing: 0,
+          borderCollapse: 'collapse',
+          minWidth: '32rem',
+        }}
       >
         <thead className="neutral-on-background-strong">
           <tr>{headers}</tr>
@@ -122,7 +137,10 @@ function Table({ data, onRowClick }: TableProps) {
             rows
           ) : (
             <tr>
-              <td colSpan={headers.length} className="px-24 py-12 font-body font-default font-s">
+              <td
+                colSpan={headers.length}
+                className="px-24 py-12 font-body font-default font-s"
+              >
                 No data available
               </td>
             </tr>

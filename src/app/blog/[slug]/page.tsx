@@ -50,13 +50,17 @@ export async function generateMetadata({
   });
 }
 
-export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
+export default async function Blog({
+  params,
+}: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join('/')
     : routeParams.slug || '';
 
-  let post = getPosts(['src', 'app', 'blog', 'posts']).find((post) => post.slug === slugPath);
+  let post = getPosts(['src', 'app', 'blog', 'posts']).find(
+    (post) => post.slug === slugPath,
+  );
 
   if (!post) {
     notFound();
@@ -101,7 +105,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Row gap="12" vertical="center">
             {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
             <Text variant="body-default-s" onBackground="neutral-weak">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+              {post.metadata.publishedAt &&
+                formatDate(post.metadata.publishedAt)}
             </Text>
           </Row>
           <Column as="article" fillWidth>
@@ -110,7 +115,15 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <ScrollToHash />
         </Column>
       </Row>
-      <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
+      <Column
+        maxWidth={12}
+        paddingLeft="40"
+        fitHeight
+        position="sticky"
+        top="80"
+        gap="16"
+        hide="m"
+      >
         <Row
           gap="12"
           paddingLeft="2"

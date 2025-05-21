@@ -19,7 +19,8 @@ interface CommonProps {
   className?: string;
 }
 
-export type SmartLinkProps = CommonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+export type SmartLinkProps = CommonProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(
   (

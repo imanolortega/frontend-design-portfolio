@@ -44,7 +44,13 @@ const getMaskStyle = (mask?: MaskOptions): string => {
   return mask?.maskPosition ? formatMask(mask.maskPosition) : formatMask();
 };
 
-const HoloFx: React.FC<HoloFxProps> = ({ children, shine, burn, texture, ...rest }) => {
+const HoloFx: React.FC<HoloFxProps> = ({
+  children,
+  shine,
+  burn,
+  texture,
+  ...rest
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const lastCallRef = useRef<number>(0);
 

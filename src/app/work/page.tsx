@@ -1,4 +1,12 @@
-import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from '@/once-ui/components';
+import {
+  Avatar,
+  Button,
+  Column,
+  Flex,
+  Heading,
+  RevealFx,
+  Text,
+} from '@/once-ui/components';
 import { baseURL } from '@/app/resources';
 import { about, person, work } from '@/app/resources/content';
 import { Meta, Schema } from '@/once-ui/modules';
@@ -33,11 +41,23 @@ export default function Work() {
       <Heading align="center" marginBottom="l" variant="display-strong-s">
         Últimos Proyectos
       </Heading>
-      <Column align="center" fillWidth gap="m" marginBottom="xl" textVariant="body-default-l">
+      <Column
+        align="center"
+        fillWidth
+        gap="m"
+        marginBottom="xl"
+        textVariant="body-default-l"
+      >
         Algunos de los últimos proyectos personales en los que he trabajado.
       </Column>
       <Projects />
-      <RevealFx marginTop="l" marginBottom="xl" delay={0.4} horizontal="center" paddingLeft="12">
+      <RevealFx
+        marginTop="l"
+        marginBottom="xl"
+        delay={0.4}
+        horizontal="center"
+        paddingLeft="12"
+      >
         <Button
           id="about"
           data-border="rounded"

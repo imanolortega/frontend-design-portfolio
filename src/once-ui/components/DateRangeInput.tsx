@@ -1,10 +1,20 @@
 'use client';
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { Input, DropdownWrapper, Flex, DateRange, DateRangePicker, Row } from '.';
+import {
+  Input,
+  DropdownWrapper,
+  Flex,
+  DateRange,
+  DateRangePicker,
+  Row,
+} from '.';
 
 interface DateRangeInputProps
-  extends Omit<React.ComponentProps<typeof Input>, 'onChange' | 'value' | 'label'> {
+  extends Omit<
+    React.ComponentProps<typeof Input>,
+    'onChange' | 'value' | 'label'
+  > {
   id: string;
   startLabel: string;
   endLabel: string;

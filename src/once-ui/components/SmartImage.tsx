@@ -199,7 +199,9 @@ const SmartImage: React.FC<SmartImageProps> = ({
               height: '100vh',
               transform: 'translate(-50%, -50%)',
             }}
-            onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+              e.stopPropagation()
+            }
           >
             {isVideo ? (
               <video

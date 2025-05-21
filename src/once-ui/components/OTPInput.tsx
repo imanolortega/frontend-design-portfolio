@@ -54,7 +54,10 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
       }
     };
 
-    const handleKeyDown = (index: number, event: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (
+      index: number,
+      event: React.KeyboardEvent<HTMLInputElement>,
+    ) => {
       if (disabled) return;
 
       if (event.key === 'Backspace') {

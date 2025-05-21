@@ -8,7 +8,10 @@ export async function POST(request: NextRequest) {
 
   if (!correctPassword) {
     console.error('PAGE_ACCESS_PASSWORD environment variable is not set');
-    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { message: 'Internal server error' },
+      { status: 500 },
+    );
   }
 
   if (password === correctPassword) {
@@ -27,6 +30,9 @@ export async function POST(request: NextRequest) {
 
     return response;
   } else {
-    return NextResponse.json({ message: 'Incorrect password' }, { status: 401 });
+    return NextResponse.json(
+      { message: 'Incorrect password' },
+      { status: 401 },
+    );
   }
 }

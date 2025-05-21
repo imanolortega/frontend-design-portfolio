@@ -16,8 +16,8 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about design, technology, and share thoughts on the
+      intersection of creativity and engineering.
     </>
   ),
 };
@@ -93,14 +93,15 @@ const about = {
     title: 'Introducción',
     description: (
       <>
-        Soy un desarrollador Front-end y diseñador con 4 años de experiencia en la creación de
-        sitios web.
+        Soy un desarrollador Front-end y diseñador con 4 años de experiencia en
+        la creación de sitios web.
         <br /> <br />
-        Tengo una amplia variedad de intereses, que incluyen desarrollo web, diseño, marketing y
-        fotografía.
+        Tengo una amplia variedad de intereses, que incluyen desarrollo web,
+        diseño, marketing y fotografía.
         <br /> <br />
-        Trabajo con Next.js en el Front-end y usualmente con algún CMS (headless o no) en el
-        Back-end. Utilizo JavaScript o TypeScript según el proyecto. También he trabajado con VueJS.
+        Trabajo con Next.js en el Front-end y usualmente con algún CMS (headless
+        o no) en el Back-end. Utilizo JavaScript o TypeScript según el proyecto.
+        También he trabajado con VueJS.
       </>
     ),
   },
@@ -113,10 +114,12 @@ const about = {
         timeframe: '2021 - Presente',
         role: 'Front-end Developer',
         achievements: [
-          <>Desarrollador Front-end de Websites desacoplados (principalmente).</>,
           <>
-            Trabajando en general con JavaScript o TypeScript, React.js, Next.js, Sass, GraphQL y
-            JSON API.
+            Desarrollador Front-end de Websites desacoplados (principalmente).
+          </>,
+          <>
+            Trabajando en general con JavaScript o TypeScript, React.js,
+            Next.js, Sass, GraphQL y JSON API.
           </>,
         ],
         images: [],
@@ -125,7 +128,9 @@ const about = {
         company: 'Silstech',
         timeframe: '2021',
         role: 'Front-end Developer',
-        achievements: [<>Desarrollador Front-end de Producto con JavaScript y Vue.js.</>],
+        achievements: [
+          <>Desarrollador Front-end de Producto con JavaScript y Vue.js.</>,
+        ],
         images: [],
       },
     ],

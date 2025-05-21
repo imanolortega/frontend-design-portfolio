@@ -31,7 +31,8 @@ interface CommonProps {
   children?: ReactNode;
 }
 
-export type IconButtonProps = CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type IconButtonProps = CommonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 type AnchorProps = CommonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
@@ -72,7 +73,11 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
       <>
         {children ? children : <Icon name={icon} size="s" />}
         {tooltip && isTooltipVisible && (
-          <Flex position="absolute" zIndex={1} className={iconStyles[tooltipPosition]}>
+          <Flex
+            position="absolute"
+            zIndex={1}
+            className={iconStyles[tooltipPosition]}
+          >
             <Tooltip label={tooltip} />
           </Flex>
         )}

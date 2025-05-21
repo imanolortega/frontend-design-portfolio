@@ -1,7 +1,15 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from '@/components/mdx';
 import { getPosts } from '@/app/utils/utils';
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from '@/once-ui/components';
+import {
+  AvatarGroup,
+  Button,
+  Column,
+  Flex,
+  Heading,
+  SmartImage,
+  Text,
+} from '@/once-ui/components';
 import { baseURL } from '@/app/resources';
 import { about, person, work } from '@/app/resources/content';
 import { formatDate } from '@/app/utils/formatDate';
@@ -50,7 +58,9 @@ export default async function Project({
     ? routeParams.slug.join('/')
     : routeParams.slug || '';
 
-  let post = getPosts(['src', 'app', 'work', 'projects']).find((post) => post.slug === slugPath);
+  let post = getPosts(['src', 'app', 'work', 'projects']).find(
+    (post) => post.slug === slugPath,
+  );
 
   if (!post) {
     notFound();
@@ -102,7 +112,9 @@ export default async function Project({
       )}
       <Column style={{ margin: 'auto' }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
+          {post.metadata.team && (
+            <AvatarGroup reverse avatars={avatars} size="m" />
+          )}
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>

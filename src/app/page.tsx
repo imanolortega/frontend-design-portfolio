@@ -65,17 +65,37 @@ export default function Home() {
               </Badge>
             </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
+          <RevealFx
+            translateY="4"
+            fillWidth
+            horizontal="start"
+            paddingBottom="16"
+          >
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+          <RevealFx
+            translateY="8"
+            delay={0.2}
+            fillWidth
+            horizontal="start"
+            paddingBottom="32"
+          >
+            <Text
+              wrap="balance"
+              onBackground="neutral-weak"
+              variant="heading-default-xl"
+            >
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+          <RevealFx
+            paddingTop="12"
+            delay={0.4}
+            horizontal="start"
+            paddingLeft="12"
+          >
             <Button
               id="about"
               data-border="rounded"
@@ -101,7 +121,12 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 2]} />
       </RevealFx>
-      <RevealFx marginBottom="xl" delay={0.4} horizontal="start" paddingLeft="32">
+      <RevealFx
+        marginBottom="xl"
+        delay={0.4}
+        horizontal="start"
+        paddingLeft="32"
+      >
         <Button
           id="about"
           data-border="rounded"

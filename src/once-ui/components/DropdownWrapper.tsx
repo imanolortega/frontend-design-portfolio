@@ -125,7 +125,10 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
 
     const handleClickOutside = useCallback(
       (event: MouseEvent) => {
-        if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        if (
+          wrapperRef.current &&
+          !wrapperRef.current.contains(event.target as Node)
+        ) {
           handleOpenChange(false);
         }
       },
@@ -134,7 +137,10 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
 
     const handleFocusOut = useCallback(
       (event: FocusEvent) => {
-        if (wrapperRef.current && !wrapperRef.current.contains(event.relatedTarget as Node)) {
+        if (
+          wrapperRef.current &&
+          !wrapperRef.current.contains(event.relatedTarget as Node)
+        ) {
           handleOpenChange(false);
         }
       },

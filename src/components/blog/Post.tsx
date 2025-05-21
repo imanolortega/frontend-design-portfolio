@@ -1,6 +1,14 @@
 'use client';
 
-import { Column, Flex, Heading, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
+import {
+  Column,
+  Flex,
+  Heading,
+  SmartImage,
+  SmartLink,
+  Tag,
+  Text,
+} from '@/once-ui/components';
 import styles from './Posts.module.scss';
 import { formatDate } from '@/app/utils/formatDate';
 
@@ -41,7 +49,13 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
             aspectRatio="16 / 9"
           />
         )}
-        <Column position="relative" fillWidth gap="4" padding="24" vertical="center">
+        <Column
+          position="relative"
+          fillWidth
+          gap="4"
+          padding="24"
+          vertical="center"
+        >
           <Heading as="h2" variant="heading-strong-l" wrap="balance">
             {post.metadata.title}
           </Heading>
@@ -49,7 +63,11 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
             {formatDate(post.metadata.publishedAt, false)}
           </Text>
           {post.metadata.tag && (
-            <Tag className="mt-12" label={post.metadata.tag} variant="neutral" />
+            <Tag
+              className="mt-12"
+              label={post.metadata.tag}
+              variant="neutral"
+            />
           )}
         </Column>
       </Flex>
