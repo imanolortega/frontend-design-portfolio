@@ -76,6 +76,7 @@ const about = {
   path: '/about',
   label: 'About',
   title: `About | ${person.name}`,
+  cta: 'Sobre mí',
   description: `${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
     display: true,
@@ -195,6 +196,7 @@ const work = {
   path: '/work',
   label: 'Projects',
   title: `Projects | ${person.name}`,
+  cta: 'Últimos proyectos',
   description: `Últimos proyectos desarrollados por ${person.name}, ${person.role}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes

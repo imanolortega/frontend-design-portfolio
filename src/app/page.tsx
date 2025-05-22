@@ -112,7 +112,7 @@ export default function Home() {
                     size="m"
                   />
                 )}
-                {about.title}
+                {about.cta}
               </Flex>
             </Button>
           </RevealFx>
@@ -124,13 +124,13 @@ export default function Home() {
       <RevealFx
         marginBottom="xl"
         delay={0.4}
-        horizontal="start"
+        horizontal="center"
         paddingLeft="32"
       >
         <Button
           id="about"
           data-border="rounded"
-          href="/work"
+          href={work.path}
           variant="secondary"
           size="m"
           arrowIcon
@@ -143,7 +143,7 @@ export default function Home() {
                 size="m"
               />
             )}
-            {work.title}
+            {work.cta}
           </Flex>
         </Button>
       </RevealFx>
