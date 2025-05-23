@@ -2,18 +2,18 @@
   "name": "ioc-portfolio",
   "version": "1.0.0",
   "scripts": {
+    "analyze": "source-map-explorer .next/static/chunks/*.js",
+    "build": "next build",
     "dev": "next dev",
     "export": "next export",
-    "build": "next build",
-    "start": "next start",
+    "format": "npx @biomejs/biome format --write .",
     "lint": "next lint",
-    "format": "npx @biomejs/biome format --write ."
+    "start": "next start"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "^15.3.1",
-    "@next/polyfill-nomodule": "^15.1.8",
     "@next/third-parties": "^15.3.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -43,6 +43,7 @@
     "eslint": "^9.25.0",
     "postcss-custom-media": "^10.0.8",
     "postcss-flexbugs-fixes": "^5.0.2",
+    "source-map-explorer": "^2.5.3",
     "typescript": "^5.8.3"
   },
   "browserslist": [

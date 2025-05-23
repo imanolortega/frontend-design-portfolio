@@ -7,6 +7,7 @@ const withMDX = mdx({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   transpilePackages: ['next-mdx-remote'],
   sassOptions: {
