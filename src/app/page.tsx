@@ -121,11 +121,7 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 2]} />
       </RevealFx>
-      <RevealFx
-        marginBottom="xl"
-        delay={0.4}
-        horizontal="center"
-      >
+      <RevealFx marginBottom="xl" delay={0.4} horizontal="center">
         <Button
           id="about"
           data-border="rounded"
