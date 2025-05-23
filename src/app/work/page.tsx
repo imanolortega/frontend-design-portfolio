@@ -45,7 +45,7 @@ export default function Work() {
         align="center"
         fillWidth
         gap="m"
-        marginBottom="xl"
+        marginBottom="l"
         textVariant="body-default-l"
       >
         Algunos de los últimos proyectos personales en los que he trabajado.
