@@ -43,5 +43,14 @@
     "postcss-custom-media": "^10.0.8",
     "postcss-flexbugs-fixes": "^5.0.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Safari versions",
+    "not IE 11",
+    "not dead",
+    "not op_mini all"
+  ]
 }
