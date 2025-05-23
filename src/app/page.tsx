@@ -125,7 +125,6 @@ export default function Home() {
         marginBottom="xl"
         delay={0.4}
         horizontal="center"
-        paddingLeft="32"
       >
         <Button
           id="about"

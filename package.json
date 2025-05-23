@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "analyze": "source-map-explorer .next/static/chunks/*.js",
+    "browsers": "browserslist",
     "build": "next build",
     "dev": "next dev",
     "export": "next export",
@@ -47,10 +48,10 @@
     "typescript": "^5.8.3"
   },
   "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Edge versions",
-    "last 2 Safari versions",
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "last 3 Edge versions",
+    "last 3 Safari versions",
     "not IE 11",
     "not dead",
     "not op_mini all"
