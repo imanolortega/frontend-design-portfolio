@@ -12,13 +12,14 @@ Repo de mi sitio personal.
 
 ## 🚀 Instalación local
 
-```bash
 git clone https://github.com/imanolortega/frontend-design-portfolio.git
 cd frontend-design-portfolio
+
+```bash
+
 npm install
 npm run dev
 
-El sitio estará disponible en http://localhost:3000.
-
 ```
 
+El sitio estará disponible en http://localhost:3000.
