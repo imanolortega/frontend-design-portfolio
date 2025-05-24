@@ -6,6 +6,9 @@ import { useEffect, useState, useRef } from 'react';
 interface Image {
   src: string;
   alt: string;
+  priority?: boolean;
+  loading?: 'eager' | 'lazy';
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 interface CarouselProps extends React.ComponentProps<typeof Flex> {
@@ -24,6 +27,7 @@ const Carousel: React.FC<CarouselProps> = ({
   revealedByDefault = false,
   ...rest
 }) => {
+  console.log(images, 'Images')
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState(revealedByDefault);
   const [initialTransition, setInitialTransition] = useState(revealedByDefault);
@@ -89,12 +93,14 @@ const Carousel: React.FC<CarouselProps> = ({
       >
         <SmartImage
           sizes={sizes}
-          priority
           radius="l"
           border="neutral-alpha-weak"
           alt={images[activeIndex]?.alt}
           aspectRatio={aspectRatio}
           src={images[activeIndex]?.src}
+          priority={images[activeIndex]?.priority}
+          loading={images[activeIndex]?.loading}
+          fetchPriority={images[activeIndex]?.fetchPriority}
           style={{
             ...(images.length > 1 && {
               cursor: 'pointer',

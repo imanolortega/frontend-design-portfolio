@@ -16,6 +16,8 @@ export interface SmartImageProps extends React.ComponentProps<typeof Flex> {
   unoptimized?: boolean;
   sizes?: string;
   priority?: boolean;
+  loading?: 'eager' | 'lazy';
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 const SmartImage: React.FC<SmartImageProps> = ({
@@ -28,9 +30,13 @@ const SmartImage: React.FC<SmartImageProps> = ({
   src,
   unoptimized = false,
   priority,
+  loading,
+  fetchPriority,
   sizes = '100vw',
   ...rest
 }) => {
+  // console.log(loading, 'Loading')
+  // console.log(fetchPriority, 'Fetch')
   const [isEnlarged, setIsEnlarged] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
 
@@ -164,6 +170,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
             src={src}
             alt={alt}
             priority={priority}
+            loading={loading}
+            fetchPriority={fetchPriority}
             sizes={sizes}
             unoptimized={unoptimized}
             fill
