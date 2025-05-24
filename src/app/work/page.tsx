@@ -1,17 +1,11 @@
-import {
-  Avatar,
-  Button,
-  Column,
-  Flex,
-  Heading,
-  RevealFx,
-  Text,
-} from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import { about, person, work } from "@/app/resources/content";
-import { Meta, Schema } from "@/once-ui/modules";
-import { Projects } from "@/components/work/Projects";
-import { CtaButton } from "@/components/CtaButton";
+import { Column, Heading } from '@/once-ui/components';
+import { Meta, Schema } from '@/once-ui/modules';
+
+import { about, person, work } from '@/app/resources/content';
+import { baseURL } from '@/app/resources';
+
+import { CtaButton } from '@/components/CtaButton';
+import { Projects } from '@/components/work/Projects';
 
 export async function generateMetadata() {
   return Meta.generate({

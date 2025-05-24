@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   Avatar,
   Button,
@@ -10,12 +12,13 @@ import {
   Tag,
   Text,
 } from '@/once-ui/components';
-import { baseURL } from '@/app/resources';
-import TableOfContents from '@/components/about/TableOfContents';
-import styles from '@/components/about/about.module.scss';
-import { person, about, social } from '@/app/resources/content';
-import React from 'react';
 import { Meta, Schema } from '@/once-ui/modules';
+
+import styles from '@/components/about/about.module.scss';
+import TableOfContents from '@/components/about/TableOfContents';
+
+import { baseURL } from '@/app/resources';
+import { person, about, social } from '@/app/resources/content';
 
 export async function generateMetadata() {
   return Meta.generate({

@@ -1,22 +1,20 @@
 import React from 'react';
 
 import {
-  Heading,
-  Flex,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
   Badge,
+  Column,
+  Heading,
+  RevealFx,
   Row,
+  Text,
 } from '@/once-ui/components';
-import { Projects } from '@/components/work/Projects';
+import { Meta, Schema } from '@/once-ui/modules';
 
 import { baseURL } from '@/app/resources';
 import { home, about, person, work } from '@/app/resources/content';
-import { Meta, Schema } from '@/once-ui/modules';
+
 import { CtaButton } from '@/components/CtaButton';
+import { Projects } from '@/components/work/Projects';
 
 export async function generateMetadata() {
   return Meta.generate({

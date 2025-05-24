@@ -20,7 +20,7 @@ export function CtaButton({
   href,
   id,
   marginBottom = '0',
-  marginTop= '0',
+  marginTop = '0',
   paddingLeft = '0',
   paddingTop = '0',
   position = 'center',
