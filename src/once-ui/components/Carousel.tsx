@@ -1,5 +1,6 @@
 'use client';
 
+import { useLoadingDelay } from '@/app/utils/useLoadingDelay';
 import { Flex, RevealFx, Scroller, SmartImage } from '.';
 import { useEffect, useState, useRef } from 'react';
 
@@ -80,6 +81,10 @@ const Carousel: React.FC<CarouselProps> = ({
     return null;
   }
 
+  const loading = useLoadingDelay(3000);
+
+  console.log(loading)
+
   return (
     <Flex fillWidth gap="12" direction="column" {...rest}>
       <RevealFx
@@ -100,6 +105,7 @@ const Carousel: React.FC<CarouselProps> = ({
           priority={images[activeIndex]?.priority}
           loading={images[activeIndex]?.loading}
           fetchPriority={images[activeIndex]?.fetchPriority}
+          isLoading={loading}
           style={{
             ...(images.length > 1 && {
               cursor: 'pointer',
