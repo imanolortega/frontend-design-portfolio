@@ -39,8 +39,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           src: image,
           alt: title,
           priority: priority && i === 0,
-          loading: i === 0 ? 'eager' : 'lazy',
-          fetchPriority: i === 0 ? 'high' : 'auto',
+          loading: priority && i === 0 ? 'eager' : 'lazy',
+          fetchPriority: priority && i === 0 ? 'high' : 'auto',
         }))}
       />
       <Flex

@@ -33,14 +33,14 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading align="center" marginBottom="l" variant="display-strong-s">
+      <Heading align="center" marginTop="l" marginBottom='l' variant="display-strong-m">
         Últimos Proyectos
       </Heading>
       <Column
         align="center"
         fillWidth
         gap="m"
-        marginBottom="l"
+        marginBottom="xl"
         textVariant="body-default-l"
       >
         Algunos de los últimos proyectos personales en los que he trabajado.
