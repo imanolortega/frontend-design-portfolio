@@ -46,23 +46,5 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "source-map-explorer": "^2.5.3",
     "typescript": "^5.8.3"
-  },
-  "browserslist": [
-    "chrome 136",
-    "chrome 135",
-    "chrome 134",
-    "chrome 133",
-    "edge 136",
-    "edge 135",
-    "edge 134",
-    "edge 133",
-    "firefox 138",
-    "firefox 137",
-    "firefox 136",
-    "firefox 135",
-    "safari 18.5",
-    "safari 18.4",
-    "safari 18.3",
-    "safari 18.2"
-  ]
+  }
 }

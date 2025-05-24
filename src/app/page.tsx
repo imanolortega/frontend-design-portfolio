@@ -16,6 +16,7 @@ import { Projects } from '@/components/work/Projects';
 import { baseURL } from '@/app/resources';
 import { home, about, person, work } from '@/app/resources/content';
 import { Meta, Schema } from '@/once-ui/modules';
+import { CtaButton } from '@/components/CtaButton';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -90,58 +91,28 @@ export default function Home() {
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx
-            paddingTop="12"
-            delay={0.4}
-            horizontal="start"
+          <CtaButton
+            avatar={person.avatar}
+            ctaLabel={about.cta}
+            href={about.path}
+            id="about"
             paddingLeft="12"
-          >
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: '-0.75rem', marginRight: '0.25rem' }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.cta}
-              </Flex>
-            </Button>
-          </RevealFx>
+            paddingTop="12"
+            position="start"
+          />
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 2]} />
       </RevealFx>
-      <RevealFx marginBottom="xl" delay={0.4} horizontal="center">
-        <Button
-          id="about"
-          data-border="rounded"
-          href={work.path}
-          variant="secondary"
-          size="m"
-          arrowIcon
-        >
-          <Flex gap="8" vertical="center">
-            {about.avatar.display && (
-              <Avatar
-                style={{ marginLeft: '-0.75rem', marginRight: '0.25rem' }}
-                src={person.avatar}
-                size="m"
-              />
-            )}
-            {work.cta}
-          </Flex>
-        </Button>
-      </RevealFx>
+      <CtaButton
+        avatar={person.avatar}
+        ctaLabel={work.cta}
+        id="work"
+        href={work.path}
+        position="center"
+        marginBottom="l"
+      />
     </Column>
   );
 }
