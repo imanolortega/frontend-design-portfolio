@@ -83,8 +83,6 @@ const Carousel: React.FC<CarouselProps> = ({
 
   const loading = useLoadingDelay(3000);
 
-  console.log(loading)
-
   return (
     <Flex fillWidth gap="12" direction="column" {...rest}>
       <RevealFx

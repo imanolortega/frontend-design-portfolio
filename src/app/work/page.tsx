@@ -54,8 +54,8 @@ export default function Work() {
       <CtaButton
         avatar={person.avatar}
         ctaLabel={work.cta}
-        id="work"
-        href={work.path}
+        id="github"
+        href='https://github.com/imanolortega'
         position="center"
         marginTop="l"
         marginBottom="l"
