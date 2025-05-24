@@ -35,8 +35,6 @@ const SmartImage: React.FC<SmartImageProps> = ({
   sizes = '100vw',
   ...rest
 }) => {
-  // console.log(loading, 'Loading')
-  // console.log(fetchPriority, 'Fetch')
   const [isEnlarged, setIsEnlarged] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
 

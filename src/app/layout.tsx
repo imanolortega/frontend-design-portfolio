@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Footer, Header, RouteGuard } from '@/components';
 import { baseURL, effects, style, font, home, person } from '@/app/resources';
 import { GoogleAnalytics } from '@next/third-parties/google';
-// import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import {
   Background,
@@ -99,7 +99,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <Analytics />
-      {/* <SpeedInsights /> */}
+      <SpeedInsights />
       <GoogleAnalytics gaId="G-Y96S8DZ7R0" />
       <ThemeProvider>
         <ToastProvider>

@@ -27,7 +27,6 @@ const Carousel: React.FC<CarouselProps> = ({
   revealedByDefault = false,
   ...rest
 }) => {
-  console.log(images, 'Images')
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState(revealedByDefault);
   const [initialTransition, setInitialTransition] = useState(revealedByDefault);
