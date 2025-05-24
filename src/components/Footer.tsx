@@ -8,11 +8,11 @@ export const Footer = () => {
   return (
     <Flex
       as="footer"
+      className={styles['footer']}
       fillWidth
       padding="8"
       horizontal="center"
       mobileDirection="column"
-      marginBottom="12"
     >
       <Flex
         className={styles.mobile}
