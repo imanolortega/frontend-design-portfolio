@@ -33,7 +33,12 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading align="center" marginTop="l" marginBottom='l' variant="display-strong-m">
+      <Heading
+        align="center"
+        marginTop="l"
+        marginBottom="l"
+        variant="display-strong-m"
+      >
         Últimos Proyectos
       </Heading>
       <Column
