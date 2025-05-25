@@ -12,7 +12,7 @@ import styles from './Footer.module.scss';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const loading = useLoadingDelay(3000);
+  const loading = useLoadingDelay(4000);
 
   return (
     <Flex
