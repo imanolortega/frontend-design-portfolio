@@ -55,7 +55,7 @@ export default function Work() {
         avatar={person.avatar}
         ctaLabel={work.cta}
         id="github"
-        href='https://github.com/imanolortega'
+        href="https://github.com/imanolortega"
         position="center"
         marginTop="l"
         marginBottom="l"
