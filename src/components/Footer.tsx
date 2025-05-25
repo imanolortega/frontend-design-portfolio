@@ -3,7 +3,6 @@
 import {
   Flex,
   IconButton,
-  Skeleton,
   SmartLink,
   Text,
 } from '@/once-ui/components';
@@ -13,7 +12,7 @@ import styles from './Footer.module.scss';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const loading = useLoadingDelay(4000);
+  const loading = useLoadingDelay(3000);
 
   return (
     <Flex
@@ -25,22 +24,7 @@ export const Footer = () => {
       mobileDirection="column"
     >
       {loading ? (
-        <Flex
-          className={styles.mobile}
-          maxWidth="m"
-          paddingY="8"
-          paddingX="16"
-          gap="16"
-          horizontal="space-between"
-          vertical="center"
-        >
-          <Skeleton height="s" width="s" shape="line" />
-          <Flex gap="16">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <Skeleton key={i} height="s" width="s" shape="circle" />
-            ))}
-          </Flex>
-        </Flex>
+        <div></div>
       ) : (
         <Flex
           className={styles.mobile}
