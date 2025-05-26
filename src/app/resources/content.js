@@ -94,15 +94,14 @@ const about = {
     title: 'Introducción',
     description: (
       <>
-        Soy un desarrollador Front-end y diseñador con 4 años de experiencia en
-        la creación de sitios web.
-        <br /> <br />
-        Tengo una amplia variedad de intereses, que incluyen desarrollo web,
-        diseño, marketing y fotografía.
+        Soy un desarrollador Front-end y diseñador con 4 años de experiencia.
         <br /> <br />
         Trabajo con Next.js en el Front-end y usualmente con algún CMS (headless
         o no) en el Back-end. Utilizo JavaScript o TypeScript según el proyecto.
         También he trabajado con VueJS.
+        <br /> <br />
+        Tengo una amplia variedad de intereses, que incluyen desarrollo web,
+        diseño, marketing y fotografía.
       </>
     ),
   },
