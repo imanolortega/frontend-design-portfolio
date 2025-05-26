@@ -81,7 +81,7 @@ const Carousel: React.FC<CarouselProps> = ({
     return null;
   }
 
-  const loading = useLoadingDelay(2000);
+  //const loading = useLoadingDelay(2000);
 
   return (
     <Flex fillWidth gap="12" direction="column" {...rest}>
@@ -103,7 +103,7 @@ const Carousel: React.FC<CarouselProps> = ({
           priority={images[activeIndex]?.priority}
           loading={images[activeIndex]?.loading}
           fetchPriority={images[activeIndex]?.fetchPriority}
-          isLoading={loading}
+          //isLoading={loading}
           style={{
             ...(images.length > 1 && {
               cursor: 'pointer',
