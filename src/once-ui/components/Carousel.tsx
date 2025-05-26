@@ -81,7 +81,7 @@ const Carousel: React.FC<CarouselProps> = ({
     return null;
   }
 
-  const loading = useLoadingDelay(4000);
+  const loading = useLoadingDelay(2000);
 
   return (
     <Flex fillWidth gap="12" direction="column" {...rest}>
