@@ -164,7 +164,22 @@ const about = {
         images: [],
       },
       {
+        title: 'Node.js',
+        description: <></>,
+        images: [],
+      },
+      {
         title: 'JavaScript y TypeScript',
+        description: <></>,
+        images: [],
+      },
+      {
+        title: 'GraphQL y Json API',
+        description: <></>,
+        images: [],
+      },
+      {
+        title: 'JEST y React Testing Library',
         description: <></>,
         images: [],
       },
