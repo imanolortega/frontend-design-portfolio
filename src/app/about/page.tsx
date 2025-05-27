@@ -19,6 +19,7 @@ import TableOfContents from '@/components/about/TableOfContents';
 
 import { baseURL } from '@/app/resources';
 import { person, about, social } from '@/app/resources/content';
+import TechInfo from '@/components/tech/TechInfo';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -293,40 +294,7 @@ export default function About() {
             </>
           )}
 
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
-              <Row gap="l" wrap marginBottom="xl">
-                {Array.from({
-                  length: Math.ceil(about.technical.skills.length / 3),
-                }).map((_, colIndex) => {
-                  const start = colIndex * 3;
-                  const end = start + 3;
-                  const group = about.technical.skills.slice(start, end);
-
-                  return (
-                    <Column key={colIndex} gap="l">
-                      {group.map((skill, index) => (
-                        <Text
-                          key={`${skill.title}-${index}`}
-                          variant="body-default-m"
-                        >
-                          - {skill.title}
-                        </Text>
-                      ))}
-                    </Column>
-                  );
-                })}
-              </Row>
-            </>
-          )}
+          <TechInfo />
         </Column>
       </Flex>
     </Column>
