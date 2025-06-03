@@ -3,11 +3,8 @@ import '@/once-ui/tokens/index.scss';
 
 import classNames from 'classnames';
 
-import { Analytics } from '@vercel/analytics/react';
 import { Footer, Header, RouteGuard } from '@/components';
 import { baseURL, effects, style, font, home, person } from '@/app/resources';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import {
   Background,
@@ -18,6 +15,27 @@ import {
 } from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
 import { Meta } from '@/once-ui/modules';
+
+import dynamic from 'next/dynamic';
+
+const Analytics = dynamic(
+  () => import('@vercel/analytics/react').then((mod) => mod.Analytics),
+  {
+    ssr: false,
+  },
+);
+const GoogleAnalytics = dynamic(
+  () => import('@next/third-parties/google').then((mod) => mod.GoogleAnalytics),
+  {
+    ssr: false,
+  },
+);
+const SpeedInsights = dynamic(
+  () => import('@vercel/speed-insights/next').then((mod) => mod.SpeedInsights),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   return Meta.generate({
