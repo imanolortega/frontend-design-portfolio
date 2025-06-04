@@ -91,7 +91,7 @@ export default async function Project({
       <Column maxWidth="xs" gap="16">
         <Button
           data-border="rounded"
-          href="/projects"
+          href="/work"
           variant="tertiary"
           weight="default"
           size="s"
