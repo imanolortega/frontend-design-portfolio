@@ -15,27 +15,7 @@ import {
 } from '@/once-ui/components';
 import { opacity, SpacingToken } from '@/once-ui/types';
 import { Meta } from '@/once-ui/modules';
-
-import dynamic from 'next/dynamic';
-
-const Analytics = dynamic(
-  () => import('@vercel/analytics/react').then((mod) => mod.Analytics),
-  {
-    ssr: false,
-  },
-);
-const GoogleAnalytics = dynamic(
-  () => import('@next/third-parties/google').then((mod) => mod.GoogleAnalytics),
-  {
-    ssr: false,
-  },
-);
-const SpeedInsights = dynamic(
-  () => import('@vercel/speed-insights/next').then((mod) => mod.SpeedInsights),
-  {
-    ssr: false,
-  },
-);
+import CustomAnalytics from '@/components/custom-analytics/CustomAnalytics';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -116,9 +96,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           }}
         />
       </head>
-      <Analytics />
-      <SpeedInsights />
-      <GoogleAnalytics gaId="G-Y96S8DZ7R0" />
+      <CustomAnalytics />
       <ThemeProvider>
         <ToastProvider>
           <Column
