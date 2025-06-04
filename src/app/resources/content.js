@@ -61,7 +61,7 @@ const home = {
         Último proyecto: <strong className="ml-4">Wedding Site</strong>
       </>
     ),
-    href: 'https://wedding-web-omega.vercel.app/',
+    href: 'https://preprod.theboda.top/',
   },
   subline: (
     <>
