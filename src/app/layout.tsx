@@ -53,6 +53,49 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         font.code.variable,
       )}
     >
+      <head>
+        {/* Meta tags fix to LinkedIn Preview */}
+        <title>{home.title}</title>
+        <meta name="description" content={home.description} />
+        <meta name="canonical" content={`${baseURL}${home.path}`} />
+        <meta
+          name="image"
+          property="og:image"
+          content="/images/og/cover-imanol-ortega.jpg"
+        />
+        <meta name="og:title" content={home.title} />
+        <meta name="og:type" content="website" />
+        <meta name="og:site_name" content={home.title} />
+        <meta name="og:description" content={home.description} />
+        <meta name="og:image" content={`${baseURL}${home.image}`} />
+        <meta name="og:image:alt" content={`${person.name}'s portfolio.`} />
+        <meta name="og:url" content={`${baseURL}${home.path}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={home.description} />
+        <meta name="twitter:description" content={home.description} />
+        <meta name="twitter:image" content={`${baseURL}${home.image}`} />
+        {/*  */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'system';
+                  const root = document.documentElement;
+                  if (theme === 'system') {
+                    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                  } else {
+                    root.setAttribute('data-theme', theme);
+                  }
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <CustomAnalytics />
       <ThemeProvider>
         <ToastProvider>
