@@ -16,6 +16,7 @@ import {
 import { opacity, SpacingToken } from '@/once-ui/types';
 import { Meta } from '@/once-ui/modules';
 import CustomAnalytics from '@/components/custom-analytics/CustomAnalytics';
+import { MetaTags } from '@/components/metatags/Metatags';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -54,23 +55,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
-        {/* Meta tags fix to LinkedIn Preview */}
-        <title>{home.title}</title>
-        <meta name="description" content={home.description} />
-        <meta name="canonical" content={`${baseURL}${home.path}`} />
-        <meta name="image" property="og:image" content={home.image} />
-        <meta name="og:title" content={home.title} />
-        <meta name="og:type" content="website" />
-        <meta name="og:site_name" content={home.title} />
-        <meta name="og:description" content={home.description} />
-        <meta name="og:image" content={home.image} />
-        <meta name="og:image:alt" content={`${person.name}'s portfolio.`} />
-        <meta name="og:url" content={`${baseURL}${home.path}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={home.description} />
-        <meta name="twitter:description" content={home.description} />
-        <meta name="twitter:image" content={home.image} />
-        {/*  */}
+        <MetaTags
+          title={home.title}
+          description={home.description}
+          image={home.image}
+          url={`${baseURL}${home.path}`}
+          imageAlt={`${person.name}'s portfolio.`}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
