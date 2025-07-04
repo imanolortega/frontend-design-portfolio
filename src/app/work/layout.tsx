@@ -17,9 +17,9 @@ import { opacity, SpacingToken } from '@/once-ui/types';
 import CustomAnalytics from '@/components/custom-analytics/CustomAnalytics';
 import { MetaTags } from '@/components/metatags/Metatags';
 
-const title = "Work | Imanol Ortega";
-const description = "Descubrí los proyectos y trabajos de Imanol Ortega.";
-const path = "/work";
+const title = 'Work | Imanol Ortega';
+const description = 'Descubrí los proyectos y trabajos de Imanol Ortega.';
+const path = '/work';
 const image = `${baseURL}/images/work-preview.jpg`;
 
 export const metadata = {

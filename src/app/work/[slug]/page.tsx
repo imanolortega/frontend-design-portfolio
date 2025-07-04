@@ -52,7 +52,9 @@ export async function generateMetadata({
 
 export default async function Project({
   params,
-}: { params: Promise<{ slug: string | string[] }> }) {
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join('/')
