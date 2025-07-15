@@ -23,8 +23,7 @@
       "src/**/*.scss",
       "src/**/*.html",
       "src/**/*.md"
-    ],
-    "maxSize": 10485760
+    ]
   },
   "javascript": {
     "formatter": {
