@@ -58,10 +58,10 @@ const home = {
     display: true,
     title: (
       <>
-        Último proyecto: <strong className="ml-4">Wedding Site</strong>
+        Último proyecto: <strong className="ml-4">Archivo SDL</strong>
       </>
     ),
-    href: 'https://preprod.theboda.top/',
+    href: 'https://archivosdl.com',
   },
   subline: (
     <>
